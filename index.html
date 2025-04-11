@@ -281,6 +281,47 @@
             margin-bottom: 15px;
         }
         
+        .resume-item .company {
+            font-weight: bold;
+            color: var(--dark-color);
+            margin-bottom: 5px;
+        }
+        
+        .resume-item .employment-type {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .resume-item .location {
+            display: flex;
+            align-items: center;
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .resume-item .location i {
+            margin-right: 5px;
+        }
+        
+        .resume-item .description {
+            margin-bottom: 15px;
+        }
+        
+        .resume-item .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        
+        .resume-item .skill-tag {
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
         .download-resume {
             text-align: center;
             margin-top: 50px;
@@ -704,23 +745,85 @@
                 </div>
                 <div class="resume-column">
                     <h3>Experience</h3>
+                    <!-- Phoenix Algo Experience -->
                     <div class="resume-item">
-                        <h3>Intern</h3>
-                        <h4>[Company Name]</h4>
-                        <span class="date">Summer 2023</span>
-                        <p>Completed a summer internship program where I learned about [What You Learned]. Assisted with [Your Responsibilities].</p>
+                        <h3>Chief Technology Officer</h3>
+                        <h4 class="company">Phoenix Algo</h4>
+                        <span class="employment-type">Full-time</span>
+                        <span class="date">Feb 2025 - Present · 3 mos</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India · Remote</span>
+                        </div>
+                        <div class="description">
+                            <p>🚀 Proudly Serving as CTO at PhoenixAlgo! At PhoenixAlgo, we're revolutionizing education through innovative technology, and I'm honored to lead the charge as Chief Technology Officer.</p>
+                            <p>In this dynamic role, I wear many hats:</p>
+                            <ul>
+                                <li>🎨 Designing Posters & Visual Content: Crafting compelling visuals that communicate our mission and inspire our community.</li>
+                                <li>💻 Managing Website Development: Building and maintaining a seamless, user-friendly platform to deliver exceptional educational services.</li>
+                                <li>👥 Leading & Collaborating with Teams: Working alongside talented individuals to drive innovation, solve challenges, and bring our vision to life.</li>
+                            </ul>
+                            <p>Every day, I'm inspired by the opportunity to make education more accessible, engaging, and impactful for learners worldwide.</p>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Canva</span>
+                            <span class="skill-tag">Web Development</span>
+                            <span class="skill-tag">Leadership</span>
+                            <span class="skill-tag">Team Management</span>
+                        </div>
                     </div>
+                    
+                    <!-- Ecell-SVPCET Experience -->
                     <div class="resume-item">
-                        <h3>Volunteer</h3>
-                        <h4>[Organization Name]</h4>
-                        <span class="date">2022 - 2023</span>
-                        <p>Volunteered as [Your Role] where I developed skills in [Skills Gained]. Contributed to [Projects/Activities].</p>
+                        <h3>Operation Management</h3>
+                        <h4 class="company">Ecell-SVPCET</h4>
+                        <span class="employment-type">Part-time</span>
+                        <span class="date">Feb 2025 - Present · 3 mos</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India · On-site</span>
+                        </div>
+                        <div class="description">
+                            <p>🚀 I am working as an Operations Manager at E-Cell, where I oversee the planning and execution of entrepreneurship-focused events, workshops, and initiatives.</p>
+                            <p>My role involves:</p>
+                            <ul>
+                                <li>Coordinating teams and managing resources</li>
+                                <li>Ensuring smooth operations to support the growth of the entrepreneurial ecosystem</li>
+                                <li>Inspiring future innovators through various programs and activities</li>
+                            </ul>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Operations Management</span>
+                            <span class="skill-tag">Event Planning</span>
+                            <span class="skill-tag">Team Coordination</span>
+                        </div>
                     </div>
+                    
+                    <!-- iBase Technology Internship -->
                     <div class="resume-item">
-                        <h3>Student Club Member</h3>
-                        <h4>[Club Name]</h4>
-                        <span class="date">2023 - Present</span>
-                        <p>Active member of [Club Name] where I participate in [Activities]. Developed leadership and teamwork skills.</p>
+                        <h3>Trainee Developer Intern</h3>
+                        <h4 class="company">iBase Electrosoft LLP</h4>
+                        <span class="employment-type">Internship</span>
+                        <span class="date">Mar 2025 · 1 wk</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India</span>
+                        </div>
+                        <div class="description">
+                            <p>Successfully completed a 7-day internship program focused on Python development.</p>
+                            <p>Gained practical knowledge in:</p>
+                            <ul>
+                                <li>Python programming fundamentals</li>
+                                <li>Software development processes</li>
+                                <li>Industry best practices</li>
+                            </ul>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Python</span>
+                            <span class="skill-tag">Software Development</span>
+                            <span class="skill-tag">Problem Solving</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -735,34 +838,75 @@
         <div class="container">
             <h2 class="section-title">My Certificates</h2>
             <div class="certificate-grid">
+                <!-- iBase Technology Internship Certificate -->
                 <div class="certificate-item">
                     <div class="certificate-img">
-                        <img src="https://images.unsplash.com/photo-1542621334-a254cf47733d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificate 1">
+                        <img src="iBase_Technology_Certificate.jpg" alt="iBase Technology Internship Certificate">
                     </div>
                     <div class="certificate-info">
-                        <h3>Introduction to Programming</h3>
-                        <p>Completed an introductory programming course covering fundamental concepts and problem-solving techniques.</p>
-                        <a href="#" class="btn">View Certificate</a>
+                        <h3>Trainee Developer Internship</h3>
+                        <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
+                        <a href="iBase_Technology_Certificate.pdf" class="btn" download>Download Certificate</a>
                     </div>
                 </div>
+
+                <!-- Hackathon Certificate -->
                 <div class="certificate-item">
                     <div class="certificate-img">
-                        <img src="https://images.unsplash.com/photo-1559028012-481c04fa702d?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificate 2">
+                        <img src="Hackathon.jpg" alt="Hackathon Participation Certificate">
                     </div>
                     <div class="certificate-info">
-                        <h3>Web Development Basics</h3>
-                        <p>Learned HTML, CSS, and JavaScript fundamentals through this comprehensive beginner's course.</p>
-                        <a href="#" class="btn">View Certificate</a>
+                        <h3>Hackathon Participation</h3>
+                        <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
+                        <a href="Hackathon.jpg" class="btn" download>Download Certificate</a>
                     </div>
                 </div>
+
+                <!-- Raisoni Hackathon Certificate -->
                 <div class="certificate-item">
                     <div class="certificate-img">
-                        <img src="https://images.unsplash.com/photo-1501504905252-473c47e087f8?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Certificate 3">
+                        <img src="Raisoni_Hackathon_Certificate.jpg" alt="Raisoni Hackathon Certificate">
                     </div>
                     <div class="certificate-info">
-                        <h3>Leadership Workshop</h3>
-                        <p>Participated in a leadership development program focusing on communication and team management.</p>
-                        <a href="#" class="btn">View Certificate</a>
+                        <h3>Raisoni Summer of Code</h3>
+                        <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
+                        <a href="Raisoni_Hackathon_Certificate.pdf" class="btn" download>Download Certificate</a>
+                    </div>
+                </div>
+
+                <!-- AWS Solution Architecture -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Solution_Architecture_Job_Simulation.jpg" alt="AWS Solution Architecture Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>AWS Solution Architecture</h3>
+                        <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
+                        <a href="Solution_Architecture_Job_Simulation.pdf" class="btn" download>Download Certificate</a>
+                    </div>
+                </div>
+
+                <!-- C Programming Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="C_Programming_Course_Certificate.jpg" alt="C Programming Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>C Programming Course</h3>
+                        <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
+                        <a href="C_Programming_Course_Certificate.pdf" class="btn" download>Download Certificate</a>
+                    </div>
+                </div>
+
+                <!-- Python Crash Course -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Crash_Course_On_Python.jpg" alt="Python Crash Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Python Crash Course</h3>
+                        <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
+                        <a href="Crash_Course_On_Python.pdf" class="btn" download>Download Certificate</a>
                     </div>
                 </div>
             </div>
