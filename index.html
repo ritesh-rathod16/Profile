@@ -121,6 +121,47 @@
             display: none;
             font-size: 24px;
             cursor: pointer;
+            color: white;
+        }
+        
+        /* Mobile Navigation Menu */
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 80px;
+            left: 0;
+            width: 100%;
+            background: var(--secondary-color);
+            z-index: 999;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px 0;
+            transform: translateY(-100%);
+            transition: transform 0.3s ease;
+        }
+        
+        .mobile-nav.active {
+            transform: translateY(0);
+        }
+        
+        .mobile-nav ul {
+            list-style: none;
+            text-align: center;
+        }
+        
+        .mobile-nav ul li {
+            margin-bottom: 15px;
+        }
+        
+        .mobile-nav ul li a {
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            display: block;
+        }
+        
+        .mobile-nav ul li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
         }
         
         /* Hero Section */
@@ -544,24 +585,7 @@
         
         @media (max-width: 768px) {
             nav ul {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--secondary-color);
-                flex-direction: column;
-                align-items: center;
-                padding-top: 30px;
-                transition: all 0.5s ease;
-            }
-            
-            nav ul.active {
-                left: 0;
-            }
-            
-            nav ul li {
-                margin: 15px 0;
+                display: none;
             }
             
             .mobile-menu {
@@ -579,6 +603,10 @@
             .hero-btns {
                 flex-direction: column;
                 gap: 15px;
+            }
+            
+            .mobile-nav {
+                display: block;
             }
         }
     </style>
@@ -598,11 +626,23 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="mobile-menu" id="mobile-menu">
-                    <i class="fas fa-bars"></i>
+                    ☰
                 </div>
             </nav>
         </div>
     </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobile-nav">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#resume">Resume</a></li>
+            <li><a href="#certificates">Certificates</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
 
     <!-- Hero Section -->
     <section class="hero" id="home">
@@ -852,7 +892,7 @@
                             <span class="project-tag">WebSockets</span>
                         </div>
                         <div class="project-links">
-                            <a href="#" class="btn">View Project</a>
+                            <a href="https://ritesh-rathod16.github.io/Whiteboard_Education/" class="btn" target="_blank">View Project</a>
                             <a href="#" class="btn btn-outline">Code</a>
                         </div>
                     </div>
@@ -961,17 +1001,17 @@
     <script>
         // Mobile Menu Toggle
         const mobileMenuBtn = document.getElementById('mobile-menu');
-        const navMenu = document.getElementById('nav-menu');
+        const mobileNav = document.getElementById('mobile-nav');
         
         mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            mobileNav.classList.toggle('active');
         });
         
         // Close mobile menu when clicking on a link
-        const navLinks = document.querySelectorAll('#nav-menu a');
-        navLinks.forEach(link => {
+        const mobileNavLinks = document.querySelectorAll('.mobile-nav a');
+        mobileNavLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                mobileNav.classList.remove('active');
             });
         });
         
