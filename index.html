@@ -89,9 +89,16 @@
             align-items: center;
         }
         
+        .logo-nav-container {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+        
         .logo {
             font-size: 24px;
             font-weight: bold;
+            white-space: nowrap;
         }
         
         .logo span {
@@ -101,16 +108,14 @@
         nav ul {
             display: flex;
             list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 30px;
+            gap: 25px;
         }
         
         nav ul li a {
             color: #fff;
             font-weight: 500;
             transition: color 0.3s ease;
+            white-space: nowrap;
         }
         
         nav ul li a:hover {
@@ -581,9 +586,7 @@
             .project-grid {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
-        }
-        
-        @media (max-width: 768px) {
+
             nav ul {
                 display: none;
             }
@@ -591,7 +594,9 @@
             .mobile-menu {
                 display: block;
             }
-            
+        }
+        
+        @media (max-width: 768px) {
             .hero h1 {
                 font-size: 36px;
             }
@@ -615,20 +620,22 @@
     <!-- Header -->
     <header>
         <div class="container header-container">
-            <div class="logo">Ritesh<span>Rathod</span></div>
-            <nav>
-                <ul id="nav-menu">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#resume">Resume</a></li>
-                    <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <div class="mobile-menu" id="mobile-menu">
-                    ☰
-                </div>
-            </nav>
+            <div class="logo-nav-container">
+                <div class="logo">Ritesh<span>Rathod</span></div>
+                <nav>
+                    <ul id="nav-menu">
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#resume">Resume</a></li>
+                        <li><a href="#certificates">Certificates</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="mobile-menu" id="mobile-menu">
+                ☰
+            </div>
         </div>
     </header>
 
@@ -783,6 +790,27 @@
                             <span class="skill-tag">Python</span>
                             <span class="skill-tag">Software Development</span>
                             <span class="skill-tag">Problem Solving</span>
+                        </div>
+                    </div>
+
+                    <!-- Volunteer Experience - E-Cell -->
+                    <div class="resume-item">
+                        <h3>Operations Manager (Volunteer)</h3>
+                        <h4 class="company">Ecell-SVPCET</h4>
+                        <span class="employment-type">Part-time</span>
+                        <span class="date">Feb 2025 - Present · 3 mos</span>
+                        <div class="location">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Nagpur, Maharashtra, India · On-site</span>
+                        </div>
+                        <div class="description">
+                            <p>🚀 I am working as an Operations Manager at E-Cell, where I oversee the planning and execution of entrepreneurship-focused events, workshops, and initiatives. My role involves coordinating teams, managing resources, and ensuring smooth operations to support the growth of the entrepreneurial ecosystem and inspire future innovators.🗽</p>
+                        </div>
+                        <div class="skills-list">
+                            <span class="skill-tag">Project Management</span>
+                            <span class="skill-tag">Operations Management</span>
+                            <span class="skill-tag">Team Coordination</span>
+                            <span class="skill-tag">Event Planning</span>
                         </div>
                     </div>
                 </div>
