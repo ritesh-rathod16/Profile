@@ -3,364 +3,960 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ritesh Rathod - Portfolio</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <title>Ritesh Rathod's Professional Profile</title>
     <style>
+        /* Global Styles */
+        :root {
+            --primary-color: #3498db;
+            --secondary-color: #2c3e50;
+            --accent-color: #e74c3c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --success-color: #2ecc71;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+        
+        a {
+            text-decoration: none;
+            color: var(--primary-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            color: var(--secondary-color);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: var(--primary-color);
+            margin: 10px auto;
+        }
+        
+        /* Header Styles */
+        header {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .logo span {
+            color: var(--primary-color);
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 30px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--primary-color);
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(44, 62, 80, 0.8), rgba(44, 62, 80, 0.8)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 80px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .hero-btns {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+        
+        .hero-btns .btn {
+            padding: 12px 30px;
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #fff;
+        }
+        
+        .btn-outline:hover {
+            background: #fff;
+            color: var(--secondary-color);
+        }
+        
+        /* About Section */
+        .about {
+            padding: 100px 0;
+            background: #fff;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+        }
+        
+        .skills {
+            margin-top: 30px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .skill-bar {
+            height: 10px;
+            background: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+        
+        .skill-progress {
+            height: 100%;
+            background: var(--primary-color);
+            border-radius: 5px;
+        }
+        
+        /* Resume Section */
+        .resume {
+            padding: 100px 0;
+            background: #f5f5f5;
+        }
+        
+        .resume-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .resume-column {
+            flex: 1;
+        }
+        
+        .resume-item {
+            background: #fff;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .resume-item h3 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .resume-item h4 {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+        }
+        
+        .resume-item .date {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 14px;
+            margin-bottom: 15px;
+        }
+        
+        .download-resume {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        /* Certificates Section */
+        .certificates {
+            padding: 100px 0;
+            background: #fff;
+        }
+        
         .certificate-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
+            gap: 30px;
         }
+        
         .certificate-item {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
+        
         .certificate-item:hover {
-            transform: scale(1.03);
+            transform: translateY(-10px);
         }
+        
+        .certificate-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .certificate-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .certificate-item:hover .certificate-img img {
+            transform: scale(1.1);
+        }
+        
+        .certificate-info {
+            padding: 20px;
+        }
+        
+        .certificate-info h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .certificate-info p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        
+        .certificate-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        /* Projects Section */
+        .projects {
+            padding: 100px 0;
+            background: #f5f5f5;
+        }
+        
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .project-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-img img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 20px;
+        }
+        
+        .project-content h3 {
+            margin-bottom: 10px;
+            color: var(--secondary-color);
+        }
+        
+        .project-content p {
+            margin-bottom: 15px;
+            color: #666;
+        }
+        
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .project-tag {
+            background: #e0e0e0;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+        
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        /* Contact Section */
+        .contact {
+            padding: 100px 0;
+            background: #fff;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+            color: var(--secondary-color);
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background: var(--light-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-color);
+            color: #fff;
+        }
+        
+        .contact-form {
+            flex: 1;
+            background: #f9f9f9;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 500;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        
+        textarea.form-control {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--secondary-color);
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+        
+        .back-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary-color);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            cursor: pointer;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Chatbot Styles */
         .chatbot-container {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 350px;
+            bottom: 30px;
+            right: 30px;
             z-index: 1000;
         }
+
         .chatbot-toggle {
-            background-color: #4F46E5;
+            width: 60px;
+            height: 60px;
+            background: var(--primary-color);
             color: white;
-            padding: 10px 15px;
             border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
         }
+
         .chatbot-window {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            position: absolute;
+            bottom: 80px;
+            right: 0;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
             overflow: hidden;
             display: none;
-            height: 400px;
             flex-direction: column;
         }
+
         .chatbot-header {
-            background-color: #4F46E5;
+            background: var(--secondary-color);
             color: white;
-            padding: 10px 15px;
+            padding: 15px;
+            text-align: center;
             font-weight: bold;
         }
+
         .chatbot-messages {
-            flex-grow: 1;
+            flex: 1;
             padding: 15px;
             overflow-y: auto;
+            background: #f5f5f5;
         }
-        .chatbot-input {
-            padding: 10px;
-            border-top: 1px solid #e5e7eb;
-            display: flex;
-        }
+
         .message {
-            margin-bottom: 10px;
-            padding: 8px 12px;
-            border-radius: 8px;
+            margin-bottom: 15px;
             max-width: 80%;
-        }
-        .bot-message {
-            background-color: #f3f4f6;
-            align-self: flex-start;
-        }
-        .user-message {
-            background-color: #4F46E5;
-            color: white;
-            align-self: flex-end;
-        }
-        .nav-link {
+            padding: 10px 15px;
+            border-radius: 18px;
+            line-height: 1.4;
             position: relative;
         }
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -2px;
-            left: 0;
-            background-color: #4F46E5;
-            transition: width 0.3s ease;
+
+        .bot-message {
+            background: white;
+            color: #333;
+            align-self: flex-start;
+            border-bottom-left-radius: 5px;
         }
-        .nav-link:hover::after {
-            width: 100%;
+
+        .user-message {
+            background: var(--primary-color);
+            color: white;
+            margin-left: auto;
+            border-bottom-right-radius: 5px;
+        }
+
+        .chatbot-input {
+            display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #eee;
+        }
+
+        .chatbot-input input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ddd;
+            border-radius: 30px;
+            outline: none;
+        }
+
+        .chatbot-input button {
+            background: var(--primary-color);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .chatbot-visible {
+            display: flex;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .about-content, .resume-container, .contact-container {
+                flex-direction: column;
+            }
+            
+            .project-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: var(--secondary-color);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 30px;
+                transition: all 0.5s ease;
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            nav ul li {
+                margin: 15px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+            
+            .hero p {
+                font-size: 18px;
+            }
+            
+            .hero-btns {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .chatbot-window {
+                width: 300px;
+                height: 400px;
+            }
         }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="bg-white shadow-lg sticky top-0 z-50">
-        <div class="container mx-auto px-6 py-3">
-            <div class="flex items-center justify-between">
-                <div class="text-2xl font-bold text-indigo-600">Ritesh Rathod</div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#about" class="nav-link text-gray-700 hover:text-indigo-600">About</a>
-                    <a href="#experience" class="nav-link text-gray-700 hover:text-indigo-600">Experience</a>
-                    <a href="#education" class="nav-link text-gray-700 hover:text-indigo-600">Education</a>
-                    <a href="#certificates" class="nav-link text-gray-700 hover:text-indigo-600">Certificates</a>
-                    <a href="#projects" class="nav-link text-gray-700 hover:text-indigo-600">Projects</a>
-                    <a href="#contact" class="nav-link text-gray-700 hover:text-indigo-600">Contact</a>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">Ritesh<span>Rathod</span></div>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#resume">Resume</a></li>
+                    <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+                <div class="mobile-menu" id="mobile-menu">
+                    <i class="fas fa-bars"></i>
                 </div>
-                <div class="md:hidden">
-                    <button class="text-gray-700 focus:outline-none">
-                        <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+            </nav>
         </div>
-    </nav>
+    </header>
 
     <!-- Hero Section -->
-    <section class="py-20 bg-gradient-to-r from-indigo-500 to-purple-600 text-white">
-        <div class="container mx-auto px-6 text-center">
-            <h1 class="text-4xl md:text-6xl font-bold mb-6">Ritesh Rathod</h1>
-            <p class="text-xl md:text-2xl mb-8">Chief Technology Officer | Python Developer | Solutions Architect</p>
-            <div class="flex justify-center space-x-4">
-                <a href="https://linkedin.com/in/ritesh-rathod-34a5a3329" target="_blank" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                    <i class="fab fa-linkedin mr-2"></i> LinkedIn
-                </a>
-                <a href="https://github.com/ritesh-rathod16" target="_blank" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                    <i class="fab fa-github mr-2"></i> GitHub
-                </a>
-                <a href="https://www.instagram.com/ritesh_rathod_official/" target="_blank" class="bg-white text-indigo-600 px-6 py-3 rounded-full font-semibold hover:bg-gray-100 transition duration-300">
-                    <i class="fab fa-instagram mr-2"></i> Instagram
-                </a>
+    <section class="hero" id="home">
+        <div class="container hero-content">
+            <h1>Hi, I'm <span style="color: var(--primary-color);">Ritesh Rathod</span></h1>
+            <p>Student | Python Developer | Passionate Learner</p>
+            <div class="hero-btns">
+                <a href="#contact" class="btn">Contact Me</a>
+                <a href="#resume" class="btn btn-outline">View Resume</a>
             </div>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">About Me</h2>
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <img src="https://via.placeholder.com/400" alt="Ritesh Rathod" class="rounded-lg shadow-xl w-full">
-                </div>
-                <div class="md:w-1/2">
-                    <p class="text-lg mb-6">
-                        🚀 Proudly Serving as CTO at PhoenixAlgo! At PhoenixAlgo, we're revolutionizing education through innovative technology, and I'm honored to lead the charge as Chief Technology Officer.
-                    </p>
-                    <p class="text-lg mb-6">
-                        In this dynamic role, I wear many hats:
-                        <br>🎨 Designing Posters & Visual Content: Crafting compelling visuals that communicate our mission and inspire our community.
-                        <br>💻 Managing Website Development: Building and maintaining a seamless, user-friendly platform to deliver exceptional educational services.
-                        <br>👥 Leading & Collaborating with Teams: Working alongside talented individuals to drive innovation, solve challenges, and bring our vision to life.
-                    </p>
-                    <p class="text-lg">
-                        Every day, I'm inspired by the opportunity to make education more accessible, engaging, and impactful for learners worldwide. It's a privilege to contribute to a team that's shaping the future of learning.
-                    </p>
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Student and Aspiring Developer</h3>
+                    <p>Hello! I'm Ritesh Rathod, a passionate student with a strong interest in Python programming and web development. I'm enthusiastic about learning new technologies and developing skills that will help me grow both academically and professionally.</p>
+                    <p>My journey in programming began when I first discovered the power of automation through Python. Since then, I've been actively participating in various learning opportunities, hackathons, and internships to expand my knowledge and skills.</p>
+                    
+                    <div class="skills">
+                        <h4>My Skills</h4>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Python Programming</span>
+                                <span>85%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 85%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Web Development</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 75%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>C Programming</span>
+                                <span>80%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 80%;"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <div class="skill-name">
+                                <span>Problem Solving</span>
+                                <span>90%</span>
+                            </div>
+                            <div class="skill-bar">
+                                <div class="skill-progress" style="width: 90%;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Experience</h2>
-            
-            <div class="bg-white rounded-lg shadow-md p-6 mb-8">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold">Chief Technology Officer</h3>
-                        <p class="text-indigo-600">Phoenix Algo · Full-time</p>
+    <!-- Resume Section -->
+    <section class="resume" id="resume">
+        <div class="container">
+            <h2 class="section-title">My Resume</h2>
+            <div class="resume-container">
+                <div class="resume-column">
+                    <h3>Education</h3>
+                    <div class="resume-item">
+                        <h3>Bachelor's Degree in Computer Science</h3>
+                        <h4>University of XYZ</h4>
+                        <span class="date">2023 - Present</span>
+                        <p>Currently pursuing my degree in Computer Science with a focus on software development and algorithms.</p>
                     </div>
-                    <div class="text-gray-500 mt-2 md:mt-0">
-                        Feb 2025 - Present · 3 mos
-                    </div>
-                </div>
-                <p class="mt-4 text-gray-700">
-                    Nagpur, Maharashtra, India · Remote
-                </p>
-                <div class="mt-4">
-                    <p>🚀 Proudly Serving as CTO at PhoenixAlgo! At PhoenixAlgo, we're revolutionizing education through innovative technology, and I'm honored to lead the charge as Chief Technology Officer.</p>
-                    <p class="mt-2">In this dynamic role, I wear many hats:</p>
-                    <ul class="list-disc pl-5 mt-2">
-                        <li>🎨 Designing Posters & Visual Content</li>
-                        <li>💻 Managing Website Development</li>
-                        <li>👥 Leading & Collaborating with Teams</li>
-                    </ul>
-                </div>
-            </div>
-            
-            <div class="bg-white rounded-lg shadow-md p-6">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold">Operation Management</h3>
-                        <p class="text-indigo-600">Ecell-SVPCET · Part-time</p>
-                    </div>
-                    <div class="text-gray-500 mt-2 md:mt-0">
-                        Feb 2025 - Present · 3 mos
+                    <div class="resume-item">
+                        <h3>High School Diploma</h3>
+                        <h4>ABC High School</h4>
+                        <span class="date">2019 - 2023</span>
+                        <p>Completed high school with honors in Science and Mathematics. Participated in coding competitions and science fairs.</p>
                     </div>
                 </div>
-                <p class="mt-4 text-gray-700">
-                    Nagpur, Maharashtra, India · On-site
-                </p>
-                <div class="mt-4">
-                    <p>🚀 I am working as an Operations Manager at E-Cell, where I oversee the planning and execution of entrepreneurship-focused events, workshops, and initiatives.</p>
-                    <p class="mt-2">My role involves:</p>
-                    <ul class="list-disc pl-5 mt-2">
-                        <li>Coordinating teams</li>
-                        <li>Managing resources</li>
-                        <li>Ensuring smooth operations to support the growth of the entrepreneurial ecosystem</li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Education Section -->
-    <section id="education" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Education</h2>
-            
-            <div class="bg-gray-100 rounded-lg shadow-md p-6 max-w-3xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold">Bachelor of Technology - BTech, Computer Science And Business System</h3>
-                        <p class="text-indigo-600">St. Vincent Pallotti College of Engineering & Technology</p>
+                <div class="resume-column">
+                    <h3>Experience</h3>
+                    <div class="resume-item">
+                        <h3>Trainee Developer Intern</h3>
+                        <h4>iBase Electrosoft LLP</h4>
+                        <span class="date">March 2025</span>
+                        <p>Completed a 7-day intensive internship focused on Python development and practical software solutions.</p>
                     </div>
-                    <div class="text-gray-500 mt-2 md:mt-0">
-                        Aug 2024 - Aug 2028
+                    <div class="resume-item">
+                        <h3>Hackathon Participant</h3>
+                        <h4>Technex Hackathon</h4>
+                        <span class="date">January 2025</span>
+                        <p>Participated in a 24-hour hackathon at St. Vincent Pallotti College, developing innovative solutions with a team.</p>
+                    </div>
+                    <div class="resume-item">
+                        <h3>Student Club Member</h3>
+                        <h4>Coding Club</h4>
+                        <span class="date">2023 - Present</span>
+                        <p>Active member of the university coding club, participating in coding challenges and workshops.</p>
                     </div>
                 </div>
             </div>
-            
-            <div class="bg-gray-100 rounded-lg shadow-md p-6 max-w-3xl mx-auto mt-6">
-                <div class="flex flex-col md:flex-row justify-between">
-                    <div>
-                        <h3 class="text-xl font-bold">High School</h3>
-                        <p class="text-indigo-600">St. Xaviers High School, Nagpur</p>
-                    </div>
-                    <div class="text-gray-500 mt-2 md:mt-0">
-                        2023 - 2024
-                    </div>
-                </div>
-                <p class="mt-4">
-                    Completed high school with honors in PCM, CS, English. Participated in Sports Tournaments.
-                </p>
+            <div class="download-resume">
+                <a href="#" class="btn">Download Full Resume (PDF)</a>
             </div>
         </div>
     </section>
 
     <!-- Certificates Section -->
-    <section id="certificates" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Certificates</h2>
-            
+    <section class="certificates" id="certificates">
+        <div class="container">
+            <h2 class="section-title">My Certificates</h2>
             <div class="certificate-grid">
-                <!-- C Programming Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="C_Programming_Course_Certificate.png" alt="C Programming Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Programming in C Certification</h3>
-                        <p class="text-gray-600 mb-2">Infosys</p>
-                        <p class="text-sm text-gray-500">Issued Dec 2024</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">C (Programming Language)</span>
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Problem Solving</span>
+                <!-- iBase Technology Internship Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="iBase_Technology_Certificate.jpg" alt="iBase Technology Internship Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Trainee Developer Internship</h3>
+                        <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
+                        <div class="certificate-actions">
+                            <a href="iBase_Technology_Certificate.pdf" class="btn" download>Download</a>
+                            <a href="iBase_Technology_Certificate.jpg" class="btn btn-outline" target="_blank">View</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Python Crash Course -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Crash_Course_On_Python.png" alt="Python Crash Course" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Crash Course on Python</h3>
-                        <p class="text-gray-600 mb-2">Google</p>
-                        <p class="text-sm text-gray-500">Issued Mar 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Python (Programming Language)</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Hackathon Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Hackathon.jpg" alt="Hackathon Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Hackathon Certificate</h3>
-                        <p class="text-gray-600 mb-2">St. Vincent Pallotti College of Engineering & Technology</p>
-                        <p class="text-sm text-gray-500">Jan 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Teamwork</span>
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Leadership</span>
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Hackathon.jpg" alt="Hackathon Participation Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Hackathon Participation</h3>
+                        <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Hackathon.jpg" class="btn" download>Download</a>
+                            <a href="Hackathon.jpg" class="btn btn-outline" target="_blank">View</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- iBase Technology Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="iBase_Technology_Certificate.png" alt="iBase Technology Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">7-Day Internship as a Trainee Developer</h3>
-                        <p class="text-gray-600 mb-2">iBase Electrosoft LLP</p>
-                        <p class="text-sm text-gray-500">Issued Mar 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Python</span>
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Practical Software Development</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Python Programming Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Python_Programming_Course_Certificate.png" alt="Python Programming Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Introduction to Python</h3>
-                        <p class="text-gray-600 mb-2">Infosys</p>
-                        <p class="text-sm text-gray-500">Issued Apr 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Python (Programming Language)</span>
-                        </div>
-                    </div>
-                </div>
-                
+
                 <!-- Raisoni Hackathon Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Raisoni_Hackathon_Certificate.png" alt="Raisoni Hackathon Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">RSOC - 2025: Hackathon</h3>
-                        <p class="text-gray-600 mb-2">Raisoni Summer Of Code</p>
-                        <p class="text-sm text-gray-500">Apr 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2">Problem-solving</span>
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Innovation</span>
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Raisoni_Hackathon_Certificate.jpg" alt="Raisoni Hackathon Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Raisoni Summer of Code</h3>
+                        <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Raisoni_Hackathon_Certificate.pdf" class="btn" download>Download</a>
+                            <a href="Raisoni_Hackathon_Certificate.jpg" class="btn btn-outline" target="_blank">View</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Python Loops Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Screenshot 2025-04-15 130013.png" alt="Python Loops Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Concepts in Python: Loops, Functions and Returns</h3>
-                        <p class="text-gray-600 mb-2">Coursera Project Network</p>
-                        <p class="text-sm text-gray-500">Issued Apr 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Python Programming</span>
+
+                <!-- AWS Solution Architecture -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Solution_Architecture_Job_Simulation.jpg" alt="AWS Solution Architecture Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>AWS Solution Architecture</h3>
+                        <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Solution_Architecture_Job_Simulation.pdf" class="btn" download>Download</a>
+                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn btn-outline" target="_blank">View</a>
                         </div>
                     </div>
                 </div>
-                
-                <!-- Solutions Architecture Certificate -->
-                <div class="certificate-item bg-white rounded-lg shadow-md overflow-hidden">
-                    <img src="Solution_Architecture_Job_Simulation.jpg" alt="Solutions Architecture Certificate" class="w-full h-48 object-cover">
-                    <div class="p-4">
-                        <h3 class="font-bold text-lg mb-2">Solutions Architecture Job Simulation</h3>
-                        <p class="text-gray-600 mb-2">AWS APAC - Forage</p>
-                        <p class="text-sm text-gray-500">Issued Mar 2025</p>
-                        <div class="mt-4">
-                            <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700">Web Development</span>
+
+                <!-- C Programming Certificate -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="C_Programming_Course_Certificate.jpg" alt="C Programming Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>C Programming Course</h3>
+                        <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
+                        <div class="certificate-actions">
+                            <a href="C_Programming_Course_Certificate.pdf" class="btn" download>Download</a>
+                            <a href="C_Programming_Course_Certificate.jpg" class="btn btn-outline" target="_blank">View</a>
                         </div>
+                    </div>
+                </div>
+
+                <!-- Python Crash Course -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Crash_Course_On_Python.jpg" alt="Python Crash Course Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Python Crash Course</h3>
+                        <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Crash_Course_On_Python.pdf" class="btn" download>Download</a>
+                            <a href="Crash_Course_On_Python.jpg" class="btn btn-outline" target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Introduction to Python -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Python_Programming_Course_Certificate.png" alt="Introduction to Python Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Introduction to Python</h3>
+                        <p>Successfully completed the Introduction to Python course from Infosys Springboard on April 25, 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Python_Programming_Course_Certificate.pdf" class="btn" download>Download</a>
+                            <a href="Python_Programming_Course_Certificate.png" class="btn btn-outline" target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Python Loops & Functions -->
+                <div class="certificate-item">
+                    <div class="certificate-img">
+                        <img src="Screenshot_2025-04-15_130013.png" alt="Python Loops & Functions Certificate">
+                    </div>
+                    <div class="certificate-info">
+                        <h3>Python: Loops & Functions</h3>
+                        <p>Completed Concepts in Python: Loops, Functions and Returns through Coursera Project Network on April 15, 2025.</p>
+                        <div class="certificate-actions">
+                            <a href="Screenshot_2025-04-15_130013.pdf" class="btn" download>Download</a>
+                            <a href="Screenshot_2025-04-15_130013.png" class="btn btn-outline" target="_blank">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placeholder for More Certificates -->
+                <div class="certificate-item" style="background: #f0f0f0; display: flex; align-items: center; justify-content: center;">
+                    <div class="certificate-info" style="text-align: center;">
+                        <h3>More Certificates Coming Soon!</h3>
+                        <p>I'm continuously learning and adding new certifications to my portfolio.</p>
                     </div>
                 </div>
             </div>
@@ -368,153 +964,318 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Projects</h2>
-            
-            <div class="max-w-4xl mx-auto bg-gray-100 rounded-lg shadow-md p-6">
-                <h3 class="text-xl font-bold mb-4">Whiteboard Education</h3>
-                <p class="mb-4">An educational platform designed to enhance learning experiences through interactive tools.</p>
-                <a href="https://ritesh-rathod16.github.io/Whiteboard_Education/" target="_blank" class="inline-block bg-indigo-600 text-white px-4 py-2 rounded hover:bg-indigo-700 transition duration-300">
-                    View Project
-                </a>
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 1">
+                    </div>
+                    <div class="project-content">
+                        <h3>Personal Portfolio Website</h3>
+                        <p>A responsive website showcasing my skills, projects, and achievements, built with HTML, CSS, and JavaScript.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">JavaScript</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                            <a href="#" class="btn btn-outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 2">
+                    </div>
+                    <div class="project-content">
+                        <h3>Student Management System</h3>
+                        <p>A console-based application for managing student records, developed using Python and file handling.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">Python</span>
+                            <span class="project-tag">File Handling</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                            <a href="#" class="btn btn-outline">Code</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="project-card">
+                    <div class="project-img">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Project 3">
+                    </div>
+                    <div class="project-content">
+                        <h3>College Club Website</h3>
+                        <p>A website for my college club with event information, member registration, and photo gallery features.</p>
+                        <div class="project-tags">
+                            <span class="project-tag">HTML</span>
+                            <span class="project-tag">CSS</span>
+                            <span class="project-tag">Bootstrap</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#" class="btn">View Project</a>
+                            <a href="#" class="btn btn-outline">Code</a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-100">
-        <div class="container mx-auto px-6">
-            <h2 class="text-3xl font-bold text-center mb-12">Contact Me</h2>
-            
-            <div class="flex flex-col md:flex-row">
-                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
-                    <div class="bg-white p-6 rounded-lg shadow-md h-full">
-                        <h3 class="text-xl font-bold mb-4">Get in Touch</h3>
-                        <p class="mb-4">Feel free to reach out for collaborations or just a friendly hello!</p>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <i class="fas fa-envelope text-indigo-600 mr-3"></i>
-                                <span>ritesh.rathod016@gmail.com</span>
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Let's Connect</h3>
+                    <p>I'm always open to discussing new opportunities, learning resources, or potential collaborations. Feel free to reach out!</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                ✉️
                             </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-linkedin text-indigo-600 mr-3"></i>
-                                <a href="https://linkedin.com/in/ritesh-rathod-34a5a3329" target="_blank" class="hover:underline">linkedin.com/in/ritesh-rathod-34a5a3329</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-github text-indigo-600 mr-3"></i>
-                                <a href="https://github.com/ritesh-rathod16" target="_blank" class="hover:underline">github.com/ritesh-rathod16</a>
-                            </div>
-                            <div class="flex items-center">
-                                <i class="fab fa-instagram text-indigo-600 mr-3"></i>
-                                <a href="https://www.instagram.com/ritesh_rathod_official/" target="_blank" class="hover:underline">instagram.com/ritesh_rathod_official</a>
-                            </div>
+                            <span>ritesh.rathod@example.com</span>
                         </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                📞
+                            </div>
+                            <span>+1 (123) 456-7890</span>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                🌐
+                            </div>
+                            <span>Nagpur, India</span>
+                        </div>
+                    </div>
+                    
+                    <h3>Follow Me</h3>
+                    <div class="social-links">
+                        <a href="https://github.com/ritesh-rathod16" class="social-link" target="_blank">
+                            <i class="fab fa-github"></i>
+                        </a>
+                        <a href="https://linkedin.com/in/ritesh-rathod-34a5a3329" class="social-link" target="_blank">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ritesh_rathod_official/" class="social-link" target="_blank">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.instagram.com/ritesh_rathod_official/" class="social-link" target="_blank">
+                            📷
+                        </a>
                     </div>
                 </div>
-                
-                <div class="md:w-1/2">
-                    <div class="max-w-md mx-auto bg-white p-5 rounded-md shadow-sm">
-                        <div class="text-center">
-                            <h1 class="my-3 text-3xl font-semibold text-gray-700">
-                                Contact Us
-                            </h1>
-                            <p class="text-gray-400">
-                                Fill up the form below to send us a message.
-                            </p>
+                <div class="contact-form">
+                    <form action="https://api.web3forms.com/submit" method="POST" id="form">
+                        <input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3" />
+                        <input type="hidden" name="subject" value="New message from your portfolio website" />
+                        <input type="checkbox" name="botcheck" id="" style="display: none;" />
+                        
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                         </div>
-                        <div class="m-7">
-                            <form action="https://api.web3forms.com/submit" method="POST" id="form">
-                                <input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3" />
-                                <input type="hidden" name="subject" value="Check out someone just sent you message using your website" />
-                                <input type="checkbox" name="botcheck" id="" style="display: none;" />
-
-                                <div class="mb-6">
-                                    <label for="name" class="block mb-2 text-sm text-gray-600">Full Name</label>
-                                    <input type="text" name="name" id="name" placeholder="John Doe" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                                </div>
-                                <div class="mb-6">
-                                    <label for="email" class="block mb-2 text-sm text-gray-600">Email Address</label>
-                                    <input type="email" name="email" id="email" placeholder="you@company.com" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                                </div>
-                                <div class="mb-6">
-                                    <label for="phone" class="text-sm text-gray-600">Phone Number</label>
-                                    <input type="text" name="phone" id="phone" placeholder="+1 (555) 1234-567" required class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" />
-                                </div>
-                                <div class="mb-6">
-                                    <label for="message" class="block mb-2 text-sm text-gray-600">Your Message</label>
-                                    <textarea rows="5" name="message" id="message" placeholder="Your Message" class="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring focus:ring-indigo-100 focus:border-indigo-300" required></textarea>
-                                </div>
-                                <div class="mb-6">
-                                    <button type="submit" class="w-full px-3 py-4 text-white bg-indigo-500 rounded-md focus:bg-indigo-600 focus:outline-none">
-                                        Send Message
-                                    </button>
-                                </div>
-                                <p class="text-base text-center text-gray-400" id="result"></p>
-                            </form>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="your.email@example.com" required>
                         </div>
-                    </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="text" name="phone" id="phone" class="form-control" placeholder="+1 (123) 456-7890">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" class="form-control" placeholder="Your message here..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-6">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <h2 class="text-2xl font-bold">Ritesh Rathod</h2>
-                    <p class="text-gray-400">Chief Technology Officer | Python Developer | Solutions Architect</p>
-                </div>
-                <div class="flex space-x-4">
-                    <a href="https://linkedin.com/in/ritesh-rathod-34a5a3329" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-linkedin text-2xl"></i>
-                    </a>
-                    <a href="https://github.com/ritesh-rathod16" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-github text-2xl"></i>
-                    </a>
-                    <a href="https://www.instagram.com/ritesh_rathod_official/" target="_blank" class="text-gray-400 hover:text-white transition duration-300">
-                        <i class="fab fa-instagram text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-            <div class="border-t border-gray-700 mt-6 pt-6 text-center text-gray-400">
-                <p>© 2025 Ritesh Rathod. All rights reserved.</p>
-            </div>
+    <footer>
+        <div class="container footer-content">
+            <p>&copy; 2025 Ritesh Rathod. All rights reserved.</p>
+            <p>Designed with ❤️ by Ritesh Rathod</p>
         </div>
     </footer>
 
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <!-- AI Chatbot -->
     <div class="chatbot-container">
-        <div class="flex justify-end">
-            <button id="chatbot-toggle" class="chatbot-toggle">
-                <i class="fas fa-robot"></i>
-            </button>
+        <div class="chatbot-toggle" id="chatbot-toggle">
+            <i class="fas fa-robot"></i>
         </div>
-        <div id="chatbot-window" class="chatbot-window">
+        <div class="chatbot-window" id="chatbot-window">
             <div class="chatbot-header">
-                AI Assistant
-                <button id="chatbot-close" class="float-right focus:outline-none">
-                    <i class="fas fa-times"></i>
-                </button>
+                Ritesh's Assistant 🤖
             </div>
-            <div id="chatbot-messages" class="chatbot-messages">
+            <div class="chatbot-messages" id="chatbot-messages">
                 <div class="message bot-message">
-                    Hello! I'm your AI assistant. How can I help you today?
+                    👋 Hi there! I'm Ritesh's AI assistant. How can I help you today?
                 </div>
             </div>
             <div class="chatbot-input">
-                <input type="text" id="chatbot-input" placeholder="Type your message..." class="flex-grow px-3 py-2 border border-gray-300 rounded-l-md focus:outline-none focus:ring-1 focus:ring-indigo-500">
-                <button id="chatbot-send" class="bg-indigo-600 text-white px-4 py-2 rounded-r-md hover:bg-indigo-700 focus:outline-none">
-                    Send
-                </button>
+                <input type="text" id="chatbot-input" placeholder="Type your message...">
+                <button id="chatbot-send"><i class="fas fa-paper-plane"></i></button>
             </div>
         </div>
     </div>
 
+    <!-- Font Awesome for icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    
+    <!-- JavaScript -->
     <script>
-        // Form submission
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu');
+        const navMenu = document.getElementById('nav-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const navLinks = document.querySelectorAll('#nav-menu a');
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Back to Top Button
+        const backToTopBtn = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                backToTopBtn.classList.add('active');
+            } else {
+                backToTopBtn.classList.remove('active');
+            }
+        });
+        
+        backToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Smooth scrolling for all links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Chatbot functionality
+        const chatbotToggle = document.getElementById('chatbot-toggle');
+        const chatbotWindow = document.getElementById('chatbot-window');
+        const chatbotMessages = document.getElementById('chatbot-messages');
+        const chatbotInput = document.getElementById('chatbot-input');
+        const chatbotSend = document.getElementById('chatbot-send');
+
+        // Toggle chatbot window
+        chatbotToggle.addEventListener('click', () => {
+            chatbotWindow.classList.toggle('chatbot-visible');
+        });
+
+        // Send message function
+        function sendMessage() {
+            const message = chatbotInput.value.trim();
+            if (message === '') return;
+
+            // Add user message
+            addMessage(message, 'user-message');
+            chatbotInput.value = '';
+
+            // Bot response
+            setTimeout(() => {
+                botResponse(message);
+            }, 500);
+        }
+
+        // Add message to chat
+        function addMessage(text, className) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', className);
+            messageDiv.textContent = text;
+            chatbotMessages.appendChild(messageDiv);
+            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
+        }
+
+        // Bot responses
+        function botResponse(userMessage) {
+            let response = '';
+            const lowerMessage = userMessage.toLowerCase();
+
+            if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
+                response = "👋 Hello! How can I help you today?";
+            } 
+            else if (lowerMessage.includes('about') || lowerMessage.includes('who are you')) {
+                response = "I'm Ritesh's AI assistant 🤖. I can tell you about Ritesh's skills, projects, and experiences. What would you like to know?";
+            }
+            else if (lowerMessage.includes('skill') || lowerMessage.includes('expert')) {
+                response = "Ritesh has skills in Python, C programming, web development, and problem solving. Check out the 'About' section for details!";
+            }
+            else if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
+                response = "Ritesh has worked on several projects including a portfolio website, student management system, and more. See the 'Projects' section for details!";
+            }
+            else if (lowerMessage.includes('contact') || lowerMessage.includes('reach')) {
+                response = "You can contact Ritesh via email (ritesh.rathod@example.com) or through his social media links in the 'Contact' section.";
+            }
+            else if (lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
+                response = "Ritesh has earned certificates in Python, C programming, AWS, and more. Check the 'Certificates' section to view them!";
+            }
+            else if (lowerMessage.includes('github') || lowerMessage.includes('code')) {
+                response = "Check out Ritesh's GitHub profile: https://github.com/ritesh-rathod16";
+            }
+            else if (lowerMessage.includes('linkedin') || lowerMessage.includes('profile')) {
+                response = "Connect with Ritesh on LinkedIn: https://linkedin.com/in/ritesh-rathod-34a5a3329";
+            }
+            else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
+                response = "Follow Ritesh on Instagram: https://www.instagram.com/ritesh_rathod_official/";
+            }
+            else {
+                response = "I'm not sure I understand. You can ask me about Ritesh's skills, projects, certificates, or how to contact him. Or check out his social media links in the Contact section!";
+            }
+
+            addMessage(response, 'bot-message');
+        }
+
+        // Send message on button click
+        chatbotSend.addEventListener('click', sendMessage);
+
+        // Send message on Enter key
+        chatbotInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                sendMessage();
+            }
+        });
+
+        // Contact form submission
         const form = document.getElementById("form");
         const result = document.getElementById("result");
 
@@ -559,69 +1320,6 @@
                         result.style.display = "none";
                     }, 5000);
                 });
-        });
-
-        // Chatbot functionality
-        const chatbotToggle = document.getElementById("chatbot-toggle");
-        const chatbotWindow = document.getElementById("chatbot-window");
-        const chatbotClose = document.getElementById("chatbot-close");
-        const chatbotMessages = document.getElementById("chatbot-messages");
-        const chatbotInput = document.getElementById("chatbot-input");
-        const chatbotSend = document.getElementById("chatbot-send");
-
-        chatbotToggle.addEventListener("click", function() {
-            chatbotWindow.style.display = chatbotWindow.style.display === "flex" ? "none" : "flex";
-        });
-
-        chatbotClose.addEventListener("click", function() {
-            chatbotWindow.style.display = "none";
-        });
-
-        function addMessage(text, isUser) {
-            const messageDiv = document.createElement("div");
-            messageDiv.classList.add("message");
-            messageDiv.classList.add(isUser ? "user-message" : "bot-message");
-            messageDiv.textContent = text;
-            chatbotMessages.appendChild(messageDiv);
-            chatbotMessages.scrollTop = chatbotMessages.scrollHeight;
-        }
-
-        function handleUserInput() {
-            const userMessage = chatbotInput.value.trim();
-            if (userMessage === "") return;
-
-            addMessage(userMessage, true);
-            chatbotInput.value = "";
-
-            // Simulate thinking
-            setTimeout(() => {
-                let botResponse = "";
-                
-                if (userMessage.toLowerCase().includes("about") || userMessage.toLowerCase().includes("who are you")) {
-                    botResponse = "I'm an AI assistant here to help you learn more about Ritesh Rathod. For detailed information about Ritesh, please check out his social media profiles:\n\nLinkedIn: linkedin.com/in/ritesh-rathod-34a5a3329\nGitHub: github.com/ritesh-rathod16\nInstagram: instagram.com/ritesh_rathod_official/";
-                } else if (userMessage.toLowerCase().includes("contact") || userMessage.toLowerCase().includes("email") || userMessage.toLowerCase().includes("reach")) {
-                    botResponse = "You can contact Ritesh via email at ritesh.rathod016@gmail.com or use the contact form on this website. You can also connect with him on LinkedIn, GitHub, or Instagram.";
-                } else if (userMessage.toLowerCase().includes("experience") || userMessage.toLowerCase().includes("work")) {
-                    botResponse = "Ritesh currently serves as the Chief Technology Officer at PhoenixAlgo, where he leads technology initiatives and manages website development. He also works as an Operations Manager at Ecell-SVPCET.";
-                } else if (userMessage.toLowerCase().includes("certificate") || userMessage.toLowerCase().includes("certification")) {
-                    botResponse = "Ritesh has earned several certificates including:\n- Google's Crash Course on Python\n- Infosys C Programming Course\n- AWS Solutions Architecture Job Simulation\n- Python programming certificates\nYou can view all certificates in the Certificates section of this website.";
-                } else if (userMessage.toLowerCase().includes("project") || userMessage.toLowerCase().includes("work")) {
-                    botResponse = "Ritesh has worked on projects like Whiteboard Education. You can view this project at: https://ritesh-rathod16.github.io/Whiteboard_Education/";
-                } else if (userMessage.toLowerCase().includes("education") || userMessage.toLowerCase().includes("school") || userMessage.toLowerCase().includes("college")) {
-                    botResponse = "Ritesh is currently pursuing a Bachelor of Technology in Computer Science And Business System from St. Vincent Pallotti College of Engineering & Technology (2024-2028). He completed his high school education at St. Xaviers High School, Nagpur.";
-                } else {
-                    botResponse = "I'm an AI assistant here to help you learn about Ritesh Rathod. For more specific information, please check out his social media profiles or the relevant sections of this website. How else can I assist you?";
-                }
-
-                addMessage(botResponse, false);
-            }, 1000);
-        }
-
-        chatbotSend.addEventListener("click", handleUserInput);
-        chatbotInput.addEventListener("keypress", function(e) {
-            if (e.key === "Enter") {
-                handleUserInput();
-            }
         });
     </script>
 </body>
