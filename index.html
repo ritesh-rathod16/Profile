@@ -7,36 +7,44 @@
     <style>
         /* Global Styles */
         :root {
-            --primary-color: #2563eb;
-            --primary-light: #3b82f6;
-            --secondary-color: #1e293b;
-            --accent-color: #dc2626;
-            --light-color: #f8fafc;
+            --primary-color: #4361ee;
+            --primary-light: #4895ef;
+            --secondary-color: #1a1a2e;
+            --accent-color: #f72585;
+            --light-color: #f8f9fa;
             --dark-color: #0f172a;
-            --success-color: #10b981;
+            --success-color: #4cc9f0;
             --card-bg: #ffffff;
-            --text-color: #334155;
-            --text-light: #64748b;
+            --text-color: #2b2d42;
+            --text-light: #6c757d;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.18);
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+            --shadow-md: 0 4px 6px rgba(0,0,0,0.1), 0 1px 3px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 25px rgba(0,0,0,0.1), 0 5px 10px rgba(0,0,0,0.05);
+            --shadow-xl: 0 20px 40px rgba(0,0,0,0.15), 0 10px 10px rgba(0,0,0,0.05);
+            --shadow-inset: inset 0 2px 4px 0 rgba(0,0,0,0.05);
         }
         
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, sans-serif;
         }
         
         body {
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-color);
-            background-color: #f1f5f9;
+            background-color: #f8f9fa;
             scroll-behavior: smooth;
+            overflow-x: hidden;
         }
         
         a {
             text-decoration: none;
             color: var(--primary-color);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         }
         
         .container {
@@ -53,17 +61,39 @@
             color: #fff;
             padding: 12px 24px;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            font-weight: 500;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            font-weight: 600;
+            box-shadow: var(--shadow-sm);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: var(--primary-light);
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: -1;
+        }
+        
+        .btn:hover::before {
+            width: 100%;
         }
         
         .btn:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-            box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn:active {
+            transform: translateY(1px);
         }
         
         .btn-outline {
@@ -78,8 +108,8 @@
         }
         
         .btn-icon {
-            width: 40px;
-            height: 40px;
+            width: 44px;
+            height: 44px;
             padding: 0;
             justify-content: center;
             border-radius: 50%;
@@ -90,8 +120,10 @@
             margin-bottom: 48px;
             color: var(--secondary-color);
             position: relative;
-            font-size: 36px;
+            font-size: 2.5rem;
             font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
         
         .section-title::after {
@@ -99,7 +131,7 @@
             display: block;
             width: 80px;
             height: 4px;
-            background: var(--primary-color);
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             margin: 16px auto;
             border-radius: 2px;
         }
@@ -109,21 +141,34 @@
             text-align: center;
             max-width: 700px;
             margin: 0 auto 40px;
-            font-size: 18px;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
         
         /* Card Styles */
         .card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-md);
+            transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            border: none;
+        }
+        
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: var(--shadow-xl);
         }
         
         /* Header Styles */
@@ -135,8 +180,14 @@
             width: 100%;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-sm);
             backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+        
+        header.scrolled {
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
         }
         
         .header-container {
@@ -146,27 +197,30 @@
         }
         
         .logo {
-            font-size: 24px;
+            font-size: 1.5rem;
             font-weight: bold;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 10px;
         }
         
         .logo span {
             color: var(--primary-color);
+            font-weight: 700;
         }
         
         .logo-icon {
-            width: 32px;
-            height: 32px;
-            background: var(--primary-color);
+            width: 36px;
+            height: 36px;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 16px;
+            font-size: 18px;
+            font-weight: bold;
+            box-shadow: var(--shadow-sm);
         }
         
         nav ul {
@@ -180,10 +234,11 @@
         
         nav ul li a {
             color: var(--secondary-color);
-            font-weight: 500;
-            transition: color 0.3s ease;
+            font-weight: 600;
+            transition: all 0.3s ease;
             position: relative;
             padding: 8px 0;
+            font-size: 1rem;
         }
         
         nav ul li a::after {
@@ -192,8 +247,8 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background: var(--primary-color);
+            height: 3px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             transition: width 0.3s ease;
         }
         
@@ -207,53 +262,79 @@
         
         .mobile-menu {
             display: none;
-            font-size: 24px;
+            font-size: 1.5rem;
             cursor: pointer;
             color: var(--secondary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .mobile-menu:hover {
+            color: var(--primary-color);
         }
         
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(30, 41, 59, 0.9), rgba(30, 41, 59, 0.95)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            background: linear-gradient(135deg, rgba(26, 26, 46, 0.9), rgba(67, 97, 238, 0.8)), url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
             color: #fff;
             display: flex;
             align-items: center;
             text-align: center;
             padding-top: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at 20% 50%, rgba(247, 37, 133, 0.2) 0%, transparent 50%);
+            z-index: 0;
         }
         
         .hero-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 1;
         }
         
         .hero h1 {
-            font-size: 52px;
-            margin-bottom: 24px;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
             line-height: 1.2;
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
         }
         
         .hero p {
-            font-size: 20px;
-            margin-bottom: 32px;
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
             opacity: 0.9;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
         
         .hero-btns {
             display: flex;
             justify-content: center;
             gap: 20px;
+            flex-wrap: wrap;
         }
         
         .hero-btns .btn {
-            padding: 14px 32px;
-            font-size: 16px;
+            padding: 16px 32px;
+            font-size: 1rem;
+            min-width: 180px;
         }
         
         .btn-outline {
             background: transparent;
             border: 2px solid #fff;
+            color: #fff;
         }
         
         .btn-outline:hover {
@@ -265,12 +346,26 @@
         .about {
             padding: 100px 0;
             background: #fff;
+            position: relative;
+        }
+        
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(248, 249, 250, 1), rgba(248, 249, 250, 0));
+            z-index: 1;
         }
         
         .about-content {
             display: flex;
             align-items: center;
             gap: 60px;
+            position: relative;
+            z-index: 2;
         }
         
         .about-text {
@@ -278,50 +373,61 @@
         }
         
         .about-text h3 {
-            font-size: 32px;
-            margin-bottom: 24px;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary-color);
+            font-weight: 700;
         }
         
         .about-text p {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1.05rem;
         }
         
         .skills {
-            margin-top: 40px;
+            margin-top: 2.5rem;
         }
         
         .skills h4 {
-            font-size: 20px;
-            margin-bottom: 20px;
+            font-size: 1.25rem;
+            margin-bottom: 1.25rem;
             color: var(--secondary-color);
+            font-weight: 600;
         }
         
         .skill-item {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
         
         .skill-name {
             display: flex;
             justify-content: space-between;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+        
+        .skill-name span:first-child {
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
         .skill-bar {
             height: 10px;
-            background: #e2e8f0;
+            background: #e9ecef;
             border-radius: 5px;
             overflow: hidden;
+            box-shadow: var(--shadow-inset);
         }
         
         .skill-progress {
             height: 100%;
-            background: var(--primary-color);
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
             border-radius: 5px;
             position: relative;
+            transition: width 1.5s ease-in-out;
         }
         
         .skill-progress::after {
@@ -331,7 +437,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
             animation: shine 2s infinite;
         }
         
@@ -343,12 +449,27 @@
         /* Resume Section */
         .resume {
             padding: 100px 0;
-            background: #f8fafc;
+            background: #f8f9fa;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .resume::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, rgba(248, 249, 250, 1), rgba(248, 249, 250, 0));
+            z-index: 1;
         }
         
         .resume-container {
             display: flex;
             gap: 50px;
+            position: relative;
+            z-index: 2;
         }
         
         .resume-column {
@@ -356,11 +477,12 @@
         }
         
         .resume-column h3 {
-            font-size: 24px;
-            margin-bottom: 30px;
+            font-size: 1.5rem;
+            margin-bottom: 1.875rem;
             color: var(--secondary-color);
             position: relative;
-            padding-left: 20px;
+            padding-left: 1.25rem;
+            font-weight: 700;
         }
         
         .resume-column h3::before {
@@ -368,97 +490,114 @@
             position: absolute;
             left: 0;
             top: 8px;
-            height: 16px;
-            width: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
+            height: 24px;
+            width: 5px;
+            background: linear-gradient(to bottom, var(--primary-color), var(--accent-color));
+            border-radius: 3px;
         }
         
         .resume-item {
             background: var(--card-bg);
-            padding: 30px;
-            margin-bottom: 30px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: 2rem;
+            margin-bottom: 1.875rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-md);
             position: relative;
             border-left: 4px solid var(--primary-color);
+            transition: all 0.3s ease;
+        }
+        
+        .resume-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
         
         .resume-item h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
+            font-size: 1.25rem;
+            margin-bottom: 0.625rem;
             color: var(--secondary-color);
             display: flex;
             align-items: center;
             gap: 10px;
+            font-weight: 600;
         }
         
         .resume-item h3 i {
             color: var(--primary-color);
-            font-size: 18px;
+            font-size: 1.125rem;
         }
         
         .resume-item h4 {
-            font-size: 16px;
+            font-size: 1rem;
             color: var(--primary-color);
-            margin-bottom: 12px;
-            font-weight: 500;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
         }
         
         .resume-item .date {
             display: inline-flex;
             align-items: center;
             gap: 6px;
-            background: #e2e8f0;
-            padding: 4px 12px;
+            background: #e9ecef;
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 14px;
-            margin-bottom: 15px;
+            font-size: 0.875rem;
+            margin-bottom: 0.9375rem;
             color: var(--text-light);
+            font-weight: 500;
         }
         
         .resume-item .date i {
-            font-size: 12px;
+            font-size: 0.75rem;
         }
         
         .resume-item p {
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.8;
+            font-size: 1rem;
         }
         
         .download-resume {
             text-align: center;
-            margin-top: 50px;
+            margin-top: 3.125rem;
         }
         
         /* Certificates Section */
         .certificates {
             padding: 100px 0;
             background: #fff;
+            position: relative;
+        }
+        
+        .certificate-grid-container {
+            perspective: 1000px;
         }
         
         .certificate-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 30px;
+            transform-style: preserve-3d;
         }
         
         .certificate-item {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
-            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            border: none;
+            transform-style: preserve-3d;
+            position: relative;
         }
         
         .certificate-item:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow-xl);
         }
         
         .certificate-img {
-            height: 250px;
+            height: 220px;
             overflow: hidden;
             position: relative;
         }
@@ -475,19 +614,20 @@
         }
         
         .certificate-info {
-            padding: 24px;
+            padding: 1.5rem;
         }
         
         .certificate-info h3 {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             color: var(--secondary-color);
-            font-size: 18px;
+            font-size: 1.125rem;
+            font-weight: 600;
         }
         
         .certificate-info p {
             color: var(--text-light);
-            margin-bottom: 20px;
-            font-size: 14px;
+            margin-bottom: 1.25rem;
+            font-size: 0.875rem;
             line-height: 1.6;
         }
         
@@ -497,8 +637,8 @@
         }
         
         .certificate-actions .btn {
-            padding: 8px 16px;
-            font-size: 14px;
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
             flex: 1;
             text-align: center;
             justify-content: center;
@@ -518,21 +658,29 @@
         /* Projects Section */
         .projects {
             padding: 100px 0;
-            background: #f8fafc;
+            background: #f8f9fa;
+            position: relative;
         }
         
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 30px;
+            transform-style: preserve-3d;
         }
         
         .project-card {
             background: var(--card-bg);
-            border-radius: 12px;
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            box-shadow: var(--shadow-md);
+            transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+            transform-style: preserve-3d;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: var(--shadow-xl);
         }
         
         .project-img {
@@ -553,34 +701,37 @@
         }
         
         .project-content {
-            padding: 24px;
+            padding: 1.5rem;
         }
         
         .project-content h3 {
-            margin-bottom: 12px;
+            margin-bottom: 0.75rem;
             color: var(--secondary-color);
-            font-size: 20px;
+            font-size: 1.25rem;
+            font-weight: 600;
         }
         
         .project-content p {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
             color: var(--text-light);
             line-height: 1.6;
+            font-size: 0.9375rem;
         }
         
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 8px;
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
         
         .project-tag {
-            background: #e2e8f0;
-            padding: 4px 12px;
+            background: #e9ecef;
+            padding: 0.25rem 0.75rem;
             border-radius: 20px;
-            font-size: 12px;
+            font-size: 0.75rem;
             color: var(--text-light);
+            font-weight: 500;
         }
         
         .project-links {
@@ -598,11 +749,27 @@
         .contact {
             padding: 100px 0;
             background: #fff;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&auto=format&fit=crop&w=1267&q=80') no-repeat center center/cover;
+            opacity: 0.03;
+            z-index: 0;
         }
         
         .contact-container {
             display: flex;
             gap: 60px;
+            position: relative;
+            z-index: 1;
         }
         
         .contact-info {
@@ -610,119 +777,135 @@
         }
         
         .contact-info h3 {
-            font-size: 28px;
-            margin-bottom: 24px;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
             color: var(--secondary-color);
+            font-weight: 700;
         }
         
         .contact-info p {
             color: var(--text-light);
-            margin-bottom: 32px;
-            line-height: 1.7;
-            font-size: 15px;
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1rem;
         }
         
         .contact-details {
-            margin-bottom: 40px;
+            margin-bottom: 2.5rem;
         }
         
         .contact-item {
             display: flex;
             align-items: center;
-            margin-bottom: 20px;
-            padding: 16px;
-            border-radius: 8px;
+            margin-bottom: 1.25rem;
+            padding: 1rem;
+            border-radius: 12px;
             transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.8);
+            box-shadow: var(--shadow-sm);
         }
         
         .contact-item:hover {
-            background: #f1f5f9;
+            background: white;
             transform: translateX(5px);
+            box-shadow: var(--shadow-md);
         }
         
         .contact-icon {
             width: 48px;
             height: 48px;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 16px;
-            font-size: 20px;
+            margin-right: 1rem;
+            font-size: 1.25rem;
             flex-shrink: 0;
+            box-shadow: var(--shadow-sm);
         }
         
         .contact-text h4 {
-            font-size: 16px;
+            font-size: 0.875rem;
             color: var(--text-light);
-            margin-bottom: 4px;
+            margin-bottom: 0.25rem;
         }
         
         .contact-text p, .contact-text a {
-            font-size: 18px;
-            font-weight: 500;
+            font-size: 1.125rem;
+            font-weight: 600;
             color: var(--secondary-color);
         }
         
         .social-links {
             display: flex;
-            gap: 16px;
+            gap: 1rem;
         }
         
         .social-link {
             width: 48px;
             height: 48px;
-            background: #f1f5f9;
+            background: white;
             color: var(--primary-color);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: all 0.3s ease;
-            font-size: 20px;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-sm);
         }
         
         .social-link:hover {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: #fff;
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-md);
         }
         
         .contact-form {
             flex: 1;
-            background: var(--card-bg);
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            border: 1px solid #e2e8f0;
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: var(--shadow-lg);
+            border: none;
+            transform-style: preserve-3d;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-form:hover {
+            transform: translateY(-5px) rotateX(2deg) rotateY(2deg);
         }
         
         .form-group {
-            margin-bottom: 24px;
+            margin-bottom: 1.5rem;
+            position: relative;
         }
         
         .form-group label {
             display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
             color: var(--secondary-color);
         }
         
         .form-control {
             width: 100%;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e9ecef;
             border-radius: 8px;
-            font-size: 16px;
+            font-size: 1rem;
             transition: all 0.3s ease;
+            background: #f8f9fa;
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+            background: white;
         }
         
         textarea.form-control {
@@ -734,25 +917,36 @@
         footer {
             background: var(--secondary-color);
             color: #fff;
-            padding: 40px 0;
+            padding: 2.5rem 0;
             text-align: center;
+            position: relative;
+        }
+        
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
         }
         
         .footer-content {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 0.625rem;
         }
         
         .footer-content p {
             margin: 0;
-            color: #e2e8f0;
-            font-size: 15px;
+            color: #e9ecef;
+            font-size: 0.9375rem;
         }
         
         .footer-content a {
             color: #fff;
-            font-weight: 500;
+            font-weight: 600;
             display: inline-flex;
             align-items: center;
             gap: 6px;
@@ -761,6 +955,7 @@
         
         .footer-content a:hover {
             color: var(--primary-light);
+            transform: translateY(-2px);
         }
         
         .back-to-top {
@@ -769,25 +964,24 @@
             right: 30px;
             width: 50px;
             height: 50px;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: #fff;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 20px;
+            font-size: 1.25rem;
             cursor: pointer;
             opacity: 0;
             visibility: hidden;
             transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-md);
             z-index: 999;
         }
         
         .back-to-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
         }
         
         .back-to-top.active {
@@ -806,22 +1000,41 @@
         .chatbot-toggle {
             width: 60px;
             height: 60px;
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-            font-size: 24px;
+            box-shadow: var(--shadow-lg);
+            font-size: 1.5rem;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .chatbot-toggle::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            opacity: 0;
             transition: all 0.3s ease;
+            z-index: -1;
+        }
+
+        .chatbot-toggle:hover::before {
+            opacity: 1;
         }
 
         .chatbot-toggle:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-xl);
         }
 
         .chatbot-window {
@@ -832,55 +1045,57 @@
             height: 500px;
             background: white;
             border-radius: 16px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            box-shadow: var(--shadow-xl);
             overflow: hidden;
             display: none;
             flex-direction: column;
-            border: 1px solid #e2e8f0;
-            transform: translateY(20px);
+            border: none;
+            transform: translateY(20px) scale(0.95);
             opacity: 0;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+            z-index: 999;
         }
 
         .chatbot-window.chatbot-visible {
             display: flex;
-            transform: translateY(0);
+            transform: translateY(0) scale(1);
             opacity: 1;
         }
 
         .chatbot-header {
-            background: var(--secondary-color);
+            background: linear-gradient(135deg, var(--secondary-color), #2a2a4a);
             color: white;
-            padding: 16px;
+            padding: 1rem;
             text-align: center;
             font-weight: 600;
-            font-size: 18px;
+            font-size: 1.125rem;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 10px;
+            box-shadow: var(--shadow-sm);
         }
 
         .chatbot-messages {
             flex: 1;
-            padding: 20px;
+            padding: 1.25rem;
             overflow-y: auto;
-            background: #f8fafc;
+            background: #f8f9fa;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 0.75rem;
         }
 
         .message {
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
             max-width: 85%;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             border-radius: 18px;
             line-height: 1.5;
             position: relative;
-            font-size: 14px;
+            font-size: 0.875rem;
             animation: fadeIn 0.3s ease;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
         }
 
         @keyframes fadeIn {
@@ -896,7 +1111,7 @@
         }
 
         .user-message {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             margin-left: auto;
             border-bottom-right-radius: 4px;
@@ -904,55 +1119,59 @@
 
         .chatbot-input {
             display: flex;
-            padding: 16px;
+            padding: 1rem;
             background: white;
-            border-top: 1px solid #e2e8f0;
+            border-top: 1px solid #e9ecef;
+            box-shadow: var(--shadow-sm);
         }
 
         .chatbot-input input {
             flex: 1;
-            padding: 12px 16px;
-            border: 1px solid #e2e8f0;
+            padding: 0.75rem 1rem;
+            border: 1px solid #e9ecef;
             border-radius: 30px;
             outline: none;
-            font-size: 14px;
+            font-size: 0.875rem;
             transition: all 0.3s ease;
+            background: #f8f9fa;
         }
 
         .chatbot-input input:focus {
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.1);
+            background: white;
         }
 
         .chatbot-input button {
-            background: var(--primary-color);
+            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
             color: white;
             border: none;
             border-radius: 50%;
             width: 48px;
             height: 48px;
-            margin-left: 12px;
+            margin-left: 0.75rem;
             cursor: pointer;
             transition: all 0.3s ease;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: var(--shadow-sm);
         }
 
         .chatbot-input button:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: var(--shadow-md);
         }
 
         .typing-indicator {
             display: flex;
-            padding: 12px 16px;
+            padding: 0.75rem 1rem;
             background: white;
             border-radius: 18px;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            box-shadow: var(--shadow-sm);
             width: fit-content;
-            margin-bottom: 8px;
+            margin-bottom: 0.5rem;
         }
 
         .typing-dot {
@@ -981,14 +1200,52 @@
             30% { transform: translateY(-5px); }
         }
         
+        /* 3D Effects */
+        .parallax {
+            transform-style: preserve-3d;
+        }
+        
+        .parallax-layer {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            transform-style: preserve-3d;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Glow Effect */
+        .glow {
+            text-shadow: 0 0 10px rgba(247, 37, 133, 0.3);
+        }
+        
+        /* Gradient Text */
+        .gradient-text {
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
         /* Responsive Styles */
         @media (max-width: 1200px) {
             .section-title {
-                font-size: 32px;
+                font-size: 2rem;
             }
             
             .hero h1 {
-                font-size: 48px;
+                font-size: 3rem;
             }
         }
         
@@ -1005,6 +1262,11 @@
             .contact-form {
                 margin-top: 40px;
             }
+            
+            .chatbot-window {
+                width: 350px;
+                height: 450px;
+            }
         }
         
         @media (max-width: 768px) {
@@ -1020,6 +1282,7 @@
                 padding-top: 40px;
                 transition: all 0.5s ease;
                 backdrop-filter: blur(10px);
+                z-index: 999;
             }
             
             nav ul.active {
@@ -1035,11 +1298,11 @@
             }
             
             .hero h1 {
-                font-size: 36px;
+                font-size: 2.25rem;
             }
             
             .hero p {
-                font-size: 18px;
+                font-size: 1.125rem;
             }
             
             .hero-btns {
@@ -1048,14 +1311,14 @@
             }
 
             .chatbot-window {
-                width: 320px;
-                height: 450px;
+                width: 300px;
+                height: 400px;
                 bottom: 70px;
             }
             
             .section-title {
-                font-size: 28px;
-                margin-bottom: 32px;
+                font-size: 1.75rem;
+                margin-bottom: 2rem;
             }
             
             .section-title::after {
@@ -1066,15 +1329,15 @@
         
         @media (max-width: 576px) {
             .hero h1 {
-                font-size: 32px;
+                font-size: 2rem;
             }
             
             .hero p {
-                font-size: 16px;
+                font-size: 1rem;
             }
             
             .btn {
-                padding: 10px 20px;
+                padding: 0.75rem 1.25rem;
             }
             
             .certificate-grid, .project-grid {
@@ -1085,16 +1348,26 @@
                 width: 280px;
                 right: -20px;
             }
+            
+            .logo {
+                font-size: 1.25rem;
+            }
+            
+            .logo-icon {
+                width: 32px;
+                height: 32px;
+                font-size: 16px;
+            }
         }
     </style>
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
-    <header>
+    <header id="main-header">
         <div class="container header-container">
             <div class="logo">
                 <div class="logo-icon">R</div>
@@ -1119,7 +1392,7 @@
     <!-- Hero Section -->
     <section class="hero" id="home">
         <div class="container hero-content">
-            <h1>Hi, I'm <span style="color: var(--primary-light);">Ritesh Rathod</span> 👋</h1>
+            <h1>Hi, I'm <span class="gradient-text">Ritesh Rathod</span> 👋</h1>
             <p>Computer Science Student | Developer | Tech Enthusiast</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
@@ -1230,123 +1503,125 @@
         <div class="container">
             <h2 class="section-title">My Certificates</h2>
             <p class="section-subtitle">Certifications I've earned through my learning journey</p>
-            <div class="certificate-grid">
-                <!-- C Programming Certificate -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="C_Programming_Course_Certificate.png" alt="C Programming Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>C Programming Course</h3>
-                        <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
-                        <div class="certificate-actions">
-                            <a href="C_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="C_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+            <div class="certificate-grid-container">
+                <div class="certificate-grid">
+                    <!-- C Programming Certificate -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="C_Programming_Course_Certificate.png" alt="C Programming Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>C Programming Course</h3>
+                            <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
+                            <div class="certificate-actions">
+                                <a href="C_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="C_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                
-                <!-- Python Crash Course -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Crash_Course_On_Python.png" alt="Python Crash Course Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Python Crash Course</h3>
-                        <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Crash_Course_On_Python.png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Crash_Course_On_Python.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    
+                    <!-- Python Crash Course -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Crash_Course_On_Python.png" alt="Python Crash Course Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Python Crash Course</h3>
+                            <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Crash_Course_On_Python.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Crash_Course_On_Python.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Introduction to Python -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Python_Programming_Course_Certificate.png" alt="Introduction to Python Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Introduction to Python</h3>
-                        <p>Successfully completed the Introduction to Python course from Infosys Springboard on April 25, 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Python_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Python_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- Introduction to Python -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Python_Programming_Course_Certificate.png" alt="Introduction to Python Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Introduction to Python</h3>
+                            <p>Successfully completed the Introduction to Python course from Infosys Springboard on April 25, 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Python_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Python_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- AWS Solution Architecture -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Solution_Architecture_Job_Simulation.jpg" alt="AWS Solution Architecture Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>AWS Solution Architecture</h3>
-                        <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- AWS Solution Architecture -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Solution_Architecture_Job_Simulation.jpg" alt="AWS Solution Architecture Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>AWS Solution Architecture</h3>
+                            <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Solution_Architecture_Job_Simulation.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Solution_Architecture_Job_Simulation.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- iBase Technology Internship Certificate -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="iBase_Technology_Certificate.png" alt="iBase Technology Internship Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Trainee Developer Internship</h3>
-                        <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
-                        <div class="certificate-actions">
-                            <a href="iBase_Technology_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="iBase_Technology_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- iBase Technology Internship Certificate -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="iBase_Technology_Certificate.png" alt="iBase Technology Internship Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Trainee Developer Internship</h3>
+                            <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
+                            <div class="certificate-actions">
+                                <a href="iBase_Technology_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="iBase_Technology_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Python Loops & Functions -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Python_Programming_Course_Certificate (2).png" alt="Python Loops & Functions Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Python: Loops & Functions</h3>
-                        <p>Completed Concepts in Python: Loops, Functions and Returns through Coursera Project Network on April 15, 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Python_Programming_Course_Certificate (2).png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Python_Programming_Course_Certificate (2).png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- Python Loops & Functions -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Python_Programming_Course_Certificate (2).png" alt="Python Loops & Functions Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Python: Loops & Functions</h3>
+                            <p>Completed Concepts in Python: Loops, Functions and Returns through Coursera Project Network on April 15, 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Python_Programming_Course_Certificate (2).png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Python_Programming_Course_Certificate (2).png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Raisoni Hackathon Certificate -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Raisoni_Hackathon_Certificate.png" alt="Raisoni Hackathon Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Raisoni Summer of Code</h3>
-                        <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Raisoni_Hackathon_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Raisoni_Hackathon_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- Raisoni Hackathon Certificate -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Raisoni_Hackathon_Certificate.png" alt="Raisoni Hackathon Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Raisoni Summer of Code</h3>
+                            <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Raisoni_Hackathon_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Raisoni_Hackathon_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Hackathon Certificate -->
-                <div class="certificate-item">
-                    <div class="certificate-img">
-                        <img src="Hackathon.jpg" alt="Hackathon Participation Certificate">
-                    </div>
-                    <div class="certificate-info">
-                        <h3>Hackathon Participation</h3>
-                        <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
-                        <div class="certificate-actions">
-                            <a href="Hackathon.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Hackathon.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                    <!-- Hackathon Certificate -->
+                    <div class="certificate-item">
+                        <div class="certificate-img">
+                            <img src="Hackathon.jpg" alt="Hackathon Participation Certificate">
+                        </div>
+                        <div class="certificate-info">
+                            <h3>Hackathon Participation</h3>
+                            <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
+                            <div class="certificate-actions">
+                                <a href="Hackathon.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                                <a href="Hackathon.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -1472,7 +1747,7 @@
         <div class="container">
             <div class="footer-content">
                 <p>&copy; 2025 Ritesh Rathod. All rights reserved.</p>
-                <p>Designed with <i class="fas fa-heart" style="color: #dc2626;"></i> by Ritesh Rathod</p>
+                <p>Designed with <i class="fas fa-heart" style="color: #f72585;"></i> by Ritesh Rathod</p>
                 <p><a href="#home"><i class="fas fa-arrow-up"></i> Back to Top</a></p>
             </div>
         </div>
@@ -1512,6 +1787,8 @@
         
         mobileMenuBtn.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = navMenu.classList.contains('active') ? 
+                '<i class="fas fa-times"></i>' : '<i class="fas fa-bars"></i>';
         });
         
         // Close mobile menu when clicking on a link
@@ -1519,7 +1796,18 @@
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
             });
+        });
+        
+        // Header scroll effect
+        const header = document.getElementById('main-header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
         });
         
         // Back to Top Button
@@ -1555,6 +1843,42 @@
                     });
                 }
             });
+        });
+
+        // Animate skill bars on scroll
+        const skillBars = document.querySelectorAll('.skill-progress');
+        
+        function animateSkillBars() {
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 100);
+            });
+        }
+        
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1
+        };
+        
+        const observer = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    if (entry.target.classList.contains('about-content')) {
+                        animateSkillBars();
+                    }
+                    entry.target.classList.add('animated');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, observerOptions);
+        
+        // Observe sections
+        const sections = document.querySelectorAll('section');
+        sections.forEach(section => {
+            observer.observe(section);
         });
 
         // Chatbot functionality
@@ -1748,6 +2072,24 @@
                         result.style.display = "none";
                     }, 5000);
                 });
+        });
+
+        // 3D hover effects for cards
+        document.querySelectorAll('.card, .project-card, .certificate-item, .resume-item').forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
+                const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
+                card.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
+            });
+
+            card.addEventListener('mouseenter', () => {
+                card.style.transition = 'all 0.1s ease';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'rotateY(0deg) rotateX(0deg)';
+                card.style.transition = 'all 0.5s ease';
+            });
         });
     </script>
 </body>
