@@ -504,15 +504,15 @@
             justify-content: center;
         }
         
-        .btn-download {
-            background: var(--primary-color);
-            color: white;
-        }
-        
-        .btn-view {
+        .view-btn {
             background: white;
             color: var(--primary-color);
             border: 1px solid var(--primary-color);
+        }
+        
+        .view-btn:hover {
+            background: var(--primary-light);
+            color: white;
         }
         
         /* Projects Section */
@@ -615,11 +615,11 @@
             color: var(--secondary-color);
         }
         
-        .contact-intro {
-            font-size: 14px;
+        .contact-info p {
             color: var(--text-light);
             margin-bottom: 32px;
             line-height: 1.7;
+            font-size: 15px;
         }
         
         .contact-details {
@@ -692,11 +692,11 @@
         
         .contact-form {
             flex: 1;
-            background: #ffffff;
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-            border: 1px solid rgba(0, 0, 0, 0.05);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
         }
         
         .form-group {
@@ -704,11 +704,10 @@
         }
         
         .form-group label {
-            font-size: 14px;
-            color: var(--secondary-color);
-            margin-bottom: 8px;
             display: block;
+            margin-bottom: 8px;
             font-weight: 500;
+            color: var(--secondary-color);
         }
         
         .form-control {
@@ -716,16 +715,14 @@
             padding: 12px 16px;
             border: 1px solid #e2e8f0;
             border-radius: 8px;
-            font-size: 14px;
+            font-size: 16px;
             transition: all 0.3s ease;
-            background: #f8fafc;
         }
         
         .form-control:focus {
             outline: none;
             border-color: var(--primary-color);
             box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
-            background: #ffffff;
         }
         
         textarea.form-control {
@@ -733,73 +730,39 @@
             resize: vertical;
         }
         
-        .optional {
-            color: var(--text-light);
-            font-weight: 400;
-        }
-        
-        .form-result {
-            margin-top: 20px;
-            padding: 12px;
-            border-radius: 8px;
-            font-size: 14px;
-            text-align: center;
-            display: none;
-        }
-        
-        .form-result.success {
-            background: rgba(16, 185, 129, 0.1);
-            color: var(--success-color);
-            display: block;
-        }
-        
-        .form-result.error {
-            background: rgba(220, 38, 38, 0.1);
-            color: var(--accent-color);
-            display: block;
-        }
-        
         /* Footer */
         footer {
-            background: var(--dark-color);
+            background: var(--secondary-color);
             color: #fff;
-            padding: 40px 0 20px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px 0;
+            text-align: center;
         }
         
         .footer-content {
             display: flex;
             flex-direction: column;
-            align-items: center;
-            text-align: center;
+            gap: 10px;
         }
         
-        .footer-text p {
-            color: rgba(255, 255, 255, 0.7);
-            font-size: 14px;
-            margin-bottom: 8px;
-            line-height: 1.6;
+        .footer-content p {
+            margin: 0;
+            color: #e2e8f0;
+            font-size: 15px;
         }
         
-        .footer-links {
-            margin-top: 20px;
-        }
-        
-        .footer-link {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 14px;
+        .footer-content a {
+            color: #fff;
+            font-weight: 500;
             display: inline-flex;
             align-items: center;
             gap: 6px;
             transition: all 0.3s ease;
         }
         
-        .footer-link:hover {
+        .footer-content a:hover {
             color: var(--primary-light);
-            transform: translateY(-2px);
         }
         
-        /* Back to Top Button */
         .back-to-top {
             position: fixed;
             bottom: 30px;
@@ -824,6 +787,7 @@
         .back-to-top:hover {
             background: var(--primary-light);
             transform: translateY(-3px);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
         }
         
         .back-to-top.active {
@@ -873,6 +837,15 @@
             display: none;
             flex-direction: column;
             border: 1px solid #e2e8f0;
+            transform: translateY(20px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .chatbot-window.chatbot-visible {
+            display: flex;
+            transform: translateY(0);
+            opacity: 1;
         }
 
         .chatbot-header {
@@ -893,17 +866,21 @@
             padding: 20px;
             overflow-y: auto;
             background: #f8fafc;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
         }
 
         .message {
-            margin-bottom: 16px;
-            max-width: 80%;
+            margin-bottom: 8px;
+            max-width: 85%;
             padding: 12px 16px;
             border-radius: 18px;
             line-height: 1.5;
             position: relative;
             font-size: 14px;
             animation: fadeIn 0.3s ease;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
 
         @keyframes fadeIn {
@@ -916,7 +893,6 @@
             color: var(--text-color);
             align-self: flex-start;
             border-bottom-left-radius: 4px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
 
         .user-message {
@@ -968,10 +944,6 @@
             transform: translateY(-2px);
         }
 
-        .chatbot-visible {
-            display: flex;
-        }
-
         .typing-indicator {
             display: flex;
             padding: 12px 16px;
@@ -980,7 +952,7 @@
             border-bottom-left-radius: 4px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
             width: fit-content;
-            margin-bottom: 16px;
+            margin-bottom: 8px;
         }
 
         .typing-dot {
@@ -1248,7 +1220,7 @@
                 </div>
             </div>
             <div class="download-resume">
-                <a href="Ritesh_Rathod_Resume.pdf" class="btn" download="Ritesh_Rathod_Resume.pdf"><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+                <a href="Ritesh_Rathod_Resume.pdf" class="btn" download><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
             </div>
         </div>
     </section>
@@ -1268,8 +1240,8 @@
                         <h3>C Programming Course</h3>
                         <p>Successfully completed the C Programming Course from Infosys Springboard on December 14, 2024.</p>
                         <div class="certificate-actions">
-                            <a href="C_Programming_Course_Certificate.png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="C_Programming_Course_Certificate.png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="C_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="C_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1283,8 +1255,8 @@
                         <h3>Python Crash Course</h3>
                         <p>Completed Google's Crash Course on Python through Coursera, certified on March 18, 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Crash_Course_On_Python.png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Crash_Course_On_Python.png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Crash_Course_On_Python.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Crash_Course_On_Python.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1298,8 +1270,8 @@
                         <h3>Introduction to Python</h3>
                         <p>Successfully completed the Introduction to Python course from Infosys Springboard on April 25, 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Python_Programming_Course_Certificate.png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Python_Programming_Course_Certificate.png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Python_Programming_Course_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Python_Programming_Course_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1313,8 +1285,8 @@
                         <h3>AWS Solution Architecture</h3>
                         <p>Completed practical tasks in designing scalable hosting architectures through Forage job simulation in March 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Solution_Architecture_Job_Simulation.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1328,8 +1300,8 @@
                         <h3>Trainee Developer Internship</h3>
                         <p>Successfully completed a 7-day internship at iBase Electrosoft LLP from 24/03/2025 to 30/03/2025, gaining practical knowledge in Python development.</p>
                         <div class="certificate-actions">
-                            <a href="iBase_Technology_Certificate.png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="iBase_Technology_Certificate.png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="iBase_Technology_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="iBase_Technology_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1343,8 +1315,8 @@
                         <h3>Python: Loops & Functions</h3>
                         <p>Completed Concepts in Python: Loops, Functions and Returns through Coursera Project Network on April 15, 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Python_Programming_Course_Certificate (2).png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Python_Programming_Course_Certificate (2).png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Python_Programming_Course_Certificate (2).png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Python_Programming_Course_Certificate (2).png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1358,8 +1330,8 @@
                         <h3>Raisoni Summer of Code</h3>
                         <p>Successfully participated in RSOC-2025: A 6-Hour Hackathon at GHRCEM, Nagpur on 3rd April 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Raisoni_Hackathon_Certificate.png" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Raisoni_Hackathon_Certificate.png" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Raisoni_Hackathon_Certificate.png" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Raisoni_Hackathon_Certificate.png" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1373,8 +1345,8 @@
                         <h3>Hackathon Participation</h3>
                         <p>Participated in Technex Hackathon at St. Vincent Pallotti College of Engineering & Technology, Nagpur on 20th-21st January 2025.</p>
                         <div class="certificate-actions">
-                            <a href="Hackathon.jpg" class="btn btn-download" download><i class="fas fa-download"></i> Download</a>
-                            <a href="Hackathon.jpg" class="btn btn-view" target="_blank"><i class="fas fa-eye"></i> View</a>
+                            <a href="Hackathon.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
+                            <a href="Hackathon.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
                     </div>
                 </div>
@@ -1413,12 +1385,12 @@
     <!-- Contact Section -->
     <section class="contact" id="contact">
         <div class="container">
-            <h2 class="section-title">Contact Me</h2>
-            <p class="section-subtitle">I'd love to hear from you - let's start a conversation</p>
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="section-subtitle">Feel free to reach out for collaborations or just a friendly hello 👋</p>
             <div class="contact-container">
                 <div class="contact-info">
                     <h3>Let's Connect</h3>
-                    <p class="contact-intro">I'm always open to discussing new opportunities, learning resources, or potential collaborations. Feel free to reach out!</p>
+                    <p>I'm always open to discussing new opportunities, learning resources, or potential collaborations. Feel free to reach out!</p>
                     
                     <div class="contact-details">
                         <div class="contact-item">
@@ -1469,29 +1441,26 @@
                 <div class="contact-form">
                     <form action="https://api.web3forms.com/submit" method="POST" id="form">
                         <input type="hidden" name="access_key" value="3ad2ac7d-5205-4c7f-b856-de35b9a592f3">
-                        <input type="hidden" name="subject" value="New message from portfolio website">
-                        <input type="checkbox" name="botcheck" style="display: none;">
+                        <input type="hidden" name="subject" value="New message from your portfolio website">
+                        <input type="checkbox" name="botcheck" id="" style="display: none;">
                         
                         <div class="form-group">
-                            <label for="name">Full Name</label>
-                            <input type="text" name="name" id="name" class="form-control" placeholder="John Doe" required>
+                            <label for="name">Your Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Email Address</label>
-                            <input type="email" name="email" id="email" class="form-control" placeholder="john@example.com" required>
+                            <label for="email">Your Email</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="your.email@example.com" required>
                         </div>
                         <div class="form-group">
-                            <label for="phone">Phone Number <span class="optional">(Optional)</span></label>
+                            <label for="phone">Phone Number</label>
                             <input type="text" name="phone" id="phone" class="form-control" placeholder="+91 1234567890">
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea name="message" id="message" class="form-control" placeholder="I'd like to discuss..." rows="5" required></textarea>
+                            <label for="message">Message</label>
+                            <textarea name="message" id="message" class="form-control" placeholder="Your message here..." required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i> Send Message
-                        </button>
-                        <div id="form-result" class="form-result"></div>
+                        <button type="submit" class="btn"><i class="fas fa-paper-plane"></i> Send Message</button>
                     </form>
                 </div>
             </div>
@@ -1500,15 +1469,11 @@
 
     <!-- Footer -->
     <footer>
-        <div class="container footer-content">
-            <div class="footer-text">
-                <p>© 2025 Ritesh Rathod. All intellectual property rights reserved.</p>
-                <p>Crafted with precision by Ritesh Rathod</p>
-            </div>
-            <div class="footer-links">
-                <a href="#home" class="footer-link">
-                    <i class="fas fa-chevron-up"></i> Return to Top
-                </a>
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Ritesh Rathod. All rights reserved.</p>
+                <p>Designed with <i class="fas fa-heart" style="color: #dc2626;"></i> by Ritesh Rathod</p>
+                <p><a href="#home"><i class="fas fa-arrow-up"></i> Back to Top</a></p>
             </div>
         </div>
     </footer>
@@ -1617,97 +1582,82 @@
             // Show typing indicator
             showTypingIndicator();
 
-            // First check local responses
-            const localResponse = getLocalResponse(message);
-            if (localResponse) {
-                setTimeout(() => {
-                    removeTypingIndicator();
-                    addMessage(localResponse, 'bot-message');
-                }, 1000 + Math.random() * 1000);
-            } else {
-                // If no local response, use AI
-                getAIResponse(message).then(aiResponse => {
-                    removeTypingIndicator();
-                    addMessage(aiResponse, 'bot-message');
-                }).catch(error => {
-                    removeTypingIndicator();
-                    addMessage("I'm having trouble connecting to the AI service. Please try again later.", 'bot-message');
-                });
-            }
-        }
-
-        // Get local responses for common questions
-        function getLocalResponse(userMessage) {
-            const lowerMessage = userMessage.toLowerCase();
-            
-            // Career & Background
-            if (/who are you|about you/.test(lowerMessage)) {
-                return "I'm Ritesh Rathod, a tech enthusiast with expertise in AI, web development, and scalable software systems. I'm passionate about building smart, human-centered technology.";
-            }
-            if (/professional background|experience|your journey/.test(lowerMessage)) {
-                return "I've worked on impactful projects in AI and full-stack development. My journey includes internships, open-source collaboration, and continuous learning.";
-            }
-            
-            // Skills & Tools
-            if (/technologies|skills|what do you know|tools/.test(lowerMessage)) {
-                return "I'm proficient in Python, JavaScript, React, Node.js, and machine learning frameworks like TensorFlow and PyTorch.";
-            }
-            if (/what makes you stand out|unique skills/.test(lowerMessage)) {
-                return "I mix deep technical knowledge with creativity, clear communication, and a drive to solve real-world problems efficiently.";
-            }
-            
-            // Projects
-            if (/project you're proud of|favorite project/.test(lowerMessage)) {
-                return "One of my favorites is an AI-powered task assistant that automates workflows for teams. You can explore it in the Projects section!";
-            }
-            if (/portfolio|see your work|projects/.test(lowerMessage)) {
-                return "Of course! Click on 'Projects' in the menu or ask me about a specific project you're curious about.";
-            }
-            
-            // Availability & Collaboration
-            if (/available for work|collaboration|opportunities/.test(lowerMessage)) {
-                return "I'm open to exciting opportunities in tech, especially in AI, product design, or system architecture. Let's connect!";
-            }
-            if (/contact you|how to reach you/.test(lowerMessage)) {
-                return "You can reach me through the contact form on this site, or connect via LinkedIn or email — all links are in the footer.";
-            }
-            
-            // Certifications & Learning
-            if (/certifications|courses|learning/.test(lowerMessage)) {
-                return "Yes! I've completed industry-recognized courses in AI, cloud computing, and web development. View them in the Certifications section.";
-            }
-            
-            // Fun & Personality
-            if (/outside work|hobbies|interests/.test(lowerMessage)) {
-                return "I love exploring new tech, playing strategy games, reading about the future of AI, and designing futuristic interfaces.";
-            }
-            if (/unique about you|special/.test(lowerMessage)) {
-                return "I bring empathy into tech. I design tools that not only function well — they feel good to use.";
-            }
-            
-            return null;
+            // Get AI response
+            getAIResponse(message).then(response => {
+                removeTypingIndicator();
+                addMessage(response, 'bot-message');
+            }).catch(error => {
+                removeTypingIndicator();
+                addMessage("I'm having trouble connecting to the AI service. Please try again later.", 'bot-message');
+                console.error("AI Error:", error);
+            });
         }
 
         // Get AI response from DeepSeek API
         async function getAIResponse(userMessage) {
             try {
-                const response = await fetch("https://api.deepseek.com/v1/chat/completions", {
-                    method: "POST",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": "Bearer YOUR_DEEPSEEK_API_KEY"
-                    },
-                    body: JSON.stringify({
-                        model: "deepseek-chat",
-                        messages: [{ role: "user", content: userMessage }]
-                    })
-                });
-                const data = await response.json();
-                return data.choices[0].message.content;
+                // In a real implementation, you would call the DeepSeek API here
+                // For now, we'll use a local response system
+                return await generateLocalResponse(userMessage);
             } catch (error) {
-                console.error("Error fetching AI response:", error);
+                console.error("AI Error:", error);
                 return "I'm sorry, I couldn't process your request. Please try again later.";
             }
+        }
+
+        // Local response generator (replace with actual API call)
+        function generateLocalResponse(userMessage) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    const lowerMessage = userMessage.toLowerCase();
+                    let response = '';
+
+                    if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
+                        response = "👋 Hello! How can I help you today? You can ask me about Ritesh's skills, projects, or experience.";
+                    } 
+                    else if (lowerMessage.includes('about') || lowerMessage.includes('who are you')) {
+                        response = "I'm Ritesh's AI assistant 🤖. I can tell you about Ritesh's skills, projects, certificates, and experiences. What would you like to know?";
+                    }
+                    else if (lowerMessage.includes('skill') || lowerMessage.includes('expert')) {
+                        response = "Ritesh has strong skills in:\n- Python Programming (85%)\n- C Programming (80%)\n- Web Development (75%)\n- Problem Solving (90%)\n\nCheck out the 'About' section for more details!";
+                    }
+                    else if (lowerMessage.includes('project') || lowerMessage.includes('work')) {
+                        response = "Ritesh has worked on several projects including:\n- WhiteBoard Education (HTML/CSS/JS)\n\nYou can view all his projects in the 'Projects' section of this website.";
+                    }
+                    else if (lowerMessage.includes('contact') || lowerMessage.includes('reach') || lowerMessage.includes('email')) {
+                        response = "You can contact Ritesh through:\n📧 Email: riteshrathod016@gmail.com\n📞 Phone: +91 7721874530\n📍 Location: Nagpur, Maharashtra, India\n\nOr use the contact form on this page!";
+                    }
+                    else if (lowerMessage.includes('certificate') || lowerMessage.includes('certification')) {
+                        response = "Ritesh has earned certificates in:\n- Python Programming\n- C Programming\n- AWS Solution Architecture\n- And more!\n\nCheck the 'Certificates' section to view them all!";
+                    }
+                    else if (lowerMessage.includes('github') || lowerMessage.includes('code')) {
+                        response = "You can find Ritesh's GitHub profile here:\nhttps://github.com/ritesh-rathod16\n\nHe shares his projects and code there!";
+                    }
+                    else if (lowerMessage.includes('linkedin') || lowerMessage.includes('profile')) {
+                        response = "Connect with Ritesh on LinkedIn:\nhttps://linkedin.com/in/ritesh-rathod-34a5a3329\n\nGreat for professional networking!";
+                    }
+                    else if (lowerMessage.includes('instagram') || lowerMessage.includes('social')) {
+                        response = "Follow Ritesh on Instagram:\nhttps://www.instagram.com/ritesh_rathod_official/\n\nCheck out his personal side!";
+                    }
+                    else if (lowerMessage.includes('resume') || lowerMessage.includes('cv')) {
+                        response = "You can download Ritesh's resume from the 'Resume' section of this website. There's a download button at the bottom of that section!";
+                    }
+                    else if (lowerMessage.includes('education') || lowerMessage.includes('study')) {
+                        response = "Ritesh is currently pursuing his Bachelor's degree in Computer Science And Business System at St. Vincent Pallotti College Of Engineering And Technology. He completed his high school at St. Xaviers High School.";
+                    }
+                    else if (lowerMessage.includes('experience') || lowerMessage.includes('job')) {
+                        response = "Ritesh has experience as:\n- CTO at PhoenixAlgo (EdTech)\n- Operations Manager at E-Cell\n\nCheck the 'Resume' section for full details!";
+                    }
+                    else if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
+                        response = "You're welcome! 😊 Let me know if there's anything else I can help with.";
+                    }
+                    else {
+                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills\n- Projects\n- Certificates\n- Experience\n- How to contact him\n\nOr check out the relevant sections of this website!";
+                    }
+
+                    resolve(response);
+                }, 1000 + Math.random() * 1000);
+            });
         }
 
         // Show typing indicator
@@ -1755,15 +1705,17 @@
 
         // Contact form submission
         const form = document.getElementById("form");
-        const result = document.getElementById("form-result");
+        const result = document.getElementById("result");
 
         form.addEventListener("submit", function (e) {
-            e.preventDefault();
             const formData = new FormData(form);
-            
-            result.innerHTML = "Sending your message...";
-            result.className = "form-result";
-            result.style.display = "block";
+            e.preventDefault();
+            var object = {};
+            formData.forEach((value, key) => {
+                object[key] = value;
+            });
+            var json = JSON.stringify(object);
+            result.innerHTML = "Please wait...";
 
             fetch("https://api.web3forms.com/submit", {
                 method: "POST",
@@ -1771,28 +1723,31 @@
                     "Content-Type": "application/json",
                     Accept: "application/json"
                 },
-                body: JSON.stringify(Object.fromEntries(formData))
+                body: json
             })
-            .then(async (response) => {
-                let json = await response.json();
-                if (response.status == 200) {
-                    result.innerHTML = "Message sent successfully! I'll get back to you soon.";
-                    result.className = "form-result success";
+                .then(async (response) => {
+                    let json = await response.json();
+                    if (response.status == 200) {
+                        result.innerHTML = json.message;
+                        result.classList.remove("text-gray-500");
+                        result.classList.add("text-green-500");
+                    } else {
+                        console.log(response);
+                        result.innerHTML = json.message;
+                        result.classList.remove("text-gray-500");
+                        result.classList.add("text-red-500");
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    result.innerHTML = "Something went wrong!";
+                })
+                .then(function () {
                     form.reset();
-                } else {
-                    result.innerHTML = json.message || "Error sending message. Please try again.";
-                    result.className = "form-result error";
-                }
-            })
-            .catch((error) => {
-                result.innerHTML = "Network error. Please try again later.";
-                result.className = "form-result error";
-            })
-            .finally(() => {
-                setTimeout(() => {
-                    result.style.display = "none";
-                }, 5000);
-            });
+                    setTimeout(() => {
+                        result.style.display = "none";
+                    }, 5000);
+                });
         });
     </script>
 </body>
