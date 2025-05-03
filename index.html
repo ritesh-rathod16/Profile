@@ -1120,7 +1120,7 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1>Hi, I'm <span style="color: var(--primary-light);">Ritesh Rathod</span> 👋</h1>
-            <p> 🚀 Student | 💻 Developer | 🔥 Tech Enthusiast/p>
+            <p>🚀 Student | 💻 Developer | 🔥 Tech Enthusiast</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
                 <a href="#resume" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Resume</a>
@@ -1354,7 +1354,7 @@
         </div>
     </section>
 
- <!-- Projects Section -->
+    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
@@ -1372,8 +1372,6 @@
                             <span class="project-tag">React</span>
                             <span class="project-tag">CSS</span>
                             <span class="project-tag">JavaScript</span>
-                            
-                            
                         </div>
                         <div class="project-links">
                             <a href="https://ritesh-rathod16.github.io/Whiteboard_Education/" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -1395,7 +1393,6 @@
                             <span class="project-tag">React</span>
                             <span class="project-tag">Node.js</span>
                             <span class="project-tag">CSS</span>
-                            
                         </div>
                         <div class="project-links">
                             <a href="https://ritesh-rathod16.github.io/Lakudkar_gym11/" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
@@ -1730,17 +1727,21 @@
 
         // Contact form submission
         const form = document.getElementById("form");
-        const result = document.getElementById("result");
 
         form.addEventListener("submit", function (e) {
-            const formData = new FormData(form);
             e.preventDefault();
+            
+            // Disable the submit button to prevent multiple submissions
+            const submitBtn = form.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            
+            const formData = new FormData(form);
             var object = {};
             formData.forEach((value, key) => {
                 object[key] = value;
             });
             var json = JSON.stringify(object);
-            result.innerHTML = "Please wait...";
 
             fetch("https://api.web3forms.com/submit", {
                 method: "POST",
@@ -1750,29 +1751,24 @@
                 },
                 body: json
             })
-                .then(async (response) => {
-                    let json = await response.json();
-                    if (response.status == 200) {
-                        result.innerHTML = json.message;
-                        result.classList.remove("text-gray-500");
-                        result.classList.add("text-green-500");
-                    } else {
-                        console.log(response);
-                        result.innerHTML = json.message;
-                        result.classList.remove("text-gray-500");
-                        result.classList.add("text-red-500");
-                    }
-                })
-                .catch((error) => {
-                    console.log(error);
-                    result.innerHTML = "Something went wrong!";
-                })
-                .then(function () {
+            .then(async (response) => {
+                let json = await response.json();
+                if (response.status == 200) {
+                    // Show success message
+                    alert("Message sent successfully! Thank you.");
                     form.reset();
-                    setTimeout(() => {
-                        result.style.display = "none";
-                    }, 5000);
-                });
+                } else {
+                    alert("Error: " + json.message);
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+                alert("Something went wrong! Please try again later.");
+            })
+            .finally(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+            });
         });
     </script>
 </body>
