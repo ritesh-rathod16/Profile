@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -595,10 +594,58 @@
             justify-content: center;
         }
         
+        /* Cloud Skills Section */
+        .cloud-skills {
+            padding: 100px 0;
+            background: #fff;
+        }
+        
+        .cloud-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+        
+        .cloud-badge {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .cloud-badge img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: white;
+            padding: 20px;
+        }
+        
+        .badge-info {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .badge-info h3 {
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+        
+        .badge-info p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            flex: 1;
+        }
+        
         /* Contact Section */
         .contact {
             padding: 100px 0;
-            background: #fff;
+            background: #f8fafc;
         }
         
         .contact-container {
@@ -981,54 +1028,6 @@
             0%, 60%, 100% { transform: translateY(0); }
             30% { transform: translateY(-5px); }
         }
-
-        /* Cloud Skills Section */
-        .cloud-skills {
-            padding: 100px 0;
-            background: #f8fafc;
-        }
-
-        .cloud-badges {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 30px;
-        }
-
-        .cloud-badge {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-            display: flex;
-            flex-direction: column;
-            border: 1px solid #e2e8f0;
-        }
-
-        .cloud-badge img {
-            width: 100%;
-            height: 200px;
-            object-fit: contain;
-            background: white;
-            padding: 20px;
-        }
-
-        .badge-info {
-            padding: 24px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .badge-info h3 {
-            margin-bottom: 12px;
-            color: var(--secondary-color);
-        }
-
-        .badge-info p {
-            margin-bottom: 20px;
-            color: var(--text-light);
-            flex: 1;
-        }
         
         /* Responsive Styles */
         @media (max-width: 1200px) {
@@ -1155,8 +1154,8 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#resume">Resume</a></li>
                     <li><a href="#certificates">Certificates</a></li>
-                    <li><a href="#cloud-skills">Cloud Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
+                    <li><a href="#cloud">Cloud Skills</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
                 <div class="mobile-menu" id="mobile-menu">
@@ -1417,46 +1416,6 @@ Honored to drive our mission forward!</p>
         </div>
     </section>
 
-    <!-- Cloud Skills Section -->
-    <section class="cloud-skills" id="cloud-skills">
-        <div class="container">
-            <h2 class="section-title">Google Cloud Skills</h2>
-            <p class="section-subtitle">My achievements in Google Cloud learning path</p>
-            
-            <div class="cloud-badges">
-                <!-- Badge 1 -->
-                <div class="cloud-badge">
-                    <img src="https://cdn.qwiklabs.com/q48Ha5zDHeG%2F5vYgH5OmkLgRYeLlHtbLgOawB7wJgo8%3D" alt="Google Cloud Essentials Badge">
-                    <div class="badge-info">
-                        <h3>Prompt Design in Vertex AI</h3>
-                        <p>Mastering prompt design in Vertex AI involves strategically crafting inputs to guide AI models, ensuring accurate, relevant, and optimized outputs for specific tasks and business goals.</p>
-                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578536" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
-                    </div>
-                </div>
-                
-                <!-- Badge 2 -->
-                <div class="cloud-badge">
-                    <img src="https://cdn.qwiklabs.com/RQhZyhu6J%2FB6MoY2p4wAb4HWxjAuBOsmG71ZtUW9hUQ%3D" alt="Create and Manage Cloud Resources Badge">
-                    <div class="badge-info">
-                        <h3>Build Real World AI Applications with Gemini and Imagen</h3>
-                        <p>Learned to Create practical AI solutions using Gemini and image processing to automate tasks, enhance insights, and improve user experiences.</p>
-                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578928" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
-                    </div>
-                </div>
-                
-                <!-- Badge 3 -->
-                <div class="cloud-badge">
-                    <img src="https://cdn.qwiklabs.com/Vs5lwoywGjpdqDAwpa0BZsp9Rdokv2NiozwkXyf3YlY%3D" alt="Perform Foundational Infrastructure Tasks Badge">
-                    <div class="badge-info">
-                        <h3>Develop GenAI Apps with Gemini and Streamlit</h3>
-                        <p>Demonstrated ability to perform foundational tasks in Google Cloud including deploying applications and monitoring.</p>
-                        <a href="https://cdn.qwiklabs.com/Vs5lwoywGjpdqDAwpa0BZsp9Rdokv2NiozwkXyf3YlY%3D" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
@@ -1501,6 +1460,46 @@ Honored to drive our mission forward!</p>
                             <a href="https://ritesh-rathod16.github.io/Lakudkar_gym11/" class="btn"><i class="fas fa-external-link-alt"></i> Live Demo</a>
                             <a href="https://github.com/ritesh-rathod16/Lakudkar_gym11/blob/main/index.html" class="btn btn-outline"><i class="fab fa-github"></i> Source Code</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Skills Section -->
+    <section class="cloud-skills" id="cloud">
+        <div class="container">
+            <h2 class="section-title">Google Cloud Skills</h2>
+            <p class="section-subtitle">My achievements in Google Cloud learning path</p>
+            
+            <div class="cloud-badges">
+                <!-- Badge 1 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Google Cloud Essentials Badge">
+                    <div class="badge-info">
+                        <h3>Google Cloud Essentials</h3>
+                        <p>Completed the Google Cloud Essentials quest, demonstrating foundational knowledge of Google Cloud services.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578536" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                    </div>
+                </div>
+                
+                <!-- Badge 2 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Create and Manage Cloud Resources Badge">
+                    <div class="badge-info">
+                        <h3>Create and Manage Cloud Resources</h3>
+                        <p>Learned to create and manage Google Cloud resources including virtual machines, networks, and storage.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578928" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                    </div>
+                </div>
+                
+                <!-- Badge 3 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Perform Foundational Infrastructure Tasks Badge">
+                    <div class="badge-info">
+                        <h3>Perform Foundational Infrastructure Tasks</h3>
+                        <p>Demonstrated ability to perform foundational tasks in Google Cloud including deploying applications and monitoring.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15583296" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
                     </div>
                 </div>
             </div>
@@ -1775,6 +1774,9 @@ Honored to drive our mission forward!</p>
                     }
                     else if (lowerMessage.includes('thank') || lowerMessage.includes('thanks')) {
                         response = "You're welcome! 😊 Let me know if there's anything else I can help with.";
+                    }
+                    else if (lowerMessage.includes('cloud') || lowerMessage.includes('google cloud')) {
+                        response = "Ritesh has earned several Google Cloud badges:\n- Google Cloud Essentials\n- Create and Manage Cloud Resources\n- Perform Foundational Infrastructure Tasks\n\nCheck the 'Cloud Skills' section to learn more!";
                     }
                     else {
                         response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills\n- Projects\n- Certificates\n- Experience\n- How to contact him\n\nOr check out the relevant sections of this website!";
