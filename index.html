@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -980,6 +981,54 @@
             0%, 60%, 100% { transform: translateY(0); }
             30% { transform: translateY(-5px); }
         }
+
+        /* Cloud Skills Section */
+        .cloud-skills {
+            padding: 100px 0;
+            background: #f8fafc;
+        }
+
+        .cloud-badges {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .cloud-badge {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            display: flex;
+            flex-direction: column;
+            border: 1px solid #e2e8f0;
+        }
+
+        .cloud-badge img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+            background: white;
+            padding: 20px;
+        }
+
+        .badge-info {
+            padding: 24px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .badge-info h3 {
+            margin-bottom: 12px;
+            color: var(--secondary-color);
+        }
+
+        .badge-info p {
+            margin-bottom: 20px;
+            color: var(--text-light);
+            flex: 1;
+        }
         
         /* Responsive Styles */
         @media (max-width: 1200px) {
@@ -998,7 +1047,7 @@
                 gap: 40px;
             }
             
-            .project-grid, .certificate-grid {
+            .project-grid, .certificate-grid, .cloud-badges {
                 grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
@@ -1077,7 +1126,7 @@
                 padding: 10px 20px;
             }
             
-            .certificate-grid, .project-grid {
+            .certificate-grid, .project-grid, .cloud-badges {
                 grid-template-columns: 1fr;
             }
             
@@ -1106,6 +1155,7 @@
                     <li><a href="#about">About</a></li>
                     <li><a href="#resume">Resume</a></li>
                     <li><a href="#certificates">Certificates</a></li>
+                    <li><a href="#cloud-skills">Cloud Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -1349,7 +1399,6 @@ Honored to drive our mission forward!</p>
                     </div>
                 </div>
 
-                
                 <!-- Hackathon Certificate -->
                 <div class="certificate-item">
                     <div class="certificate-img">
@@ -1362,6 +1411,46 @@ Honored to drive our mission forward!</p>
                             <a href="Hackathon.jpg" class="btn" download><i class="fas fa-download"></i> Download</a>
                             <a href="Hackathon.jpg" class="btn view-btn" target="_blank"><i class="fas fa-eye"></i> View</a>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cloud Skills Section -->
+    <section class="cloud-skills" id="cloud-skills">
+        <div class="container">
+            <h2 class="section-title">Google Cloud Skills</h2>
+            <p class="section-subtitle">My achievements in Google Cloud learning path</p>
+            
+            <div class="cloud-badges">
+                <!-- Badge 1 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Google Cloud Essentials Badge">
+                    <div class="badge-info">
+                        <h3>Google Cloud Essentials</h3>
+                        <p>Completed the Google Cloud Essentials quest, demonstrating foundational knowledge of Google Cloud services.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578536" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                    </div>
+                </div>
+                
+                <!-- Badge 2 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Create and Manage Cloud Resources Badge">
+                    <div class="badge-info">
+                        <h3>Create and Manage Cloud Resources</h3>
+                        <p>Learned to create and manage Google Cloud resources including virtual machines, networks, and storage.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15578928" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
+                    </div>
+                </div>
+                
+                <!-- Badge 3 -->
+                <div class="cloud-badge">
+                    <img src="https://cdn.qwiklabs.com/9%2BJTqB%2FJwwE9XQyQ2qQfX3b4jV%2B%2FZ7Z4L6Q9X5z9Y5Y%3D" alt="Perform Foundational Infrastructure Tasks Badge">
+                    <div class="badge-info">
+                        <h3>Perform Foundational Infrastructure Tasks</h3>
+                        <p>Demonstrated ability to perform foundational tasks in Google Cloud including deploying applications and monitoring.</p>
+                        <a href="https://www.cloudskillsboost.google/public_profiles/79310cb2-e658-4c3d-8055-4fb5273fa378/badges/15583296" class="btn btn-outline" target="_blank"><i class="fas fa-external-link-alt"></i> View Badge</a>
                     </div>
                 </div>
             </div>
