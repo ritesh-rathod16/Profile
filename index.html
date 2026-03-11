@@ -474,25 +474,20 @@
         }
 
         .achievement-image {
-            height: 200px;
+            height: 220px;
             overflow: hidden;
-            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 1.5rem;
-            position: relative;
         }
 
         .achievement-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: center;
             transition: var(--transition);
-        }
-
-        .achievement-image.trophy-image {
-            background: linear-gradient(135deg, #fbbf24, #d97706);
         }
 
         .achievement-card:hover .achievement-image img {
@@ -574,7 +569,7 @@
             padding: 1rem;
             border-radius: var(--border-radius);
             margin-top: 1rem;
-            border-left: 4px solid var(--primary-color);
+            border-left: 4px solid #fbbf24;
         }
 
         .achievement-stats {
@@ -638,23 +633,23 @@
         .featured-image {
             flex: 1;
             min-height: 300px;
-            background: linear-gradient(135deg, #fbbf24, #d97706);
+            background: #ffffff;
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: 2rem;
+            overflow: hidden;
         }
 
         .featured-image img {
-            max-width: 100%;
-            max-height: 250px;
-            object-fit: contain;
-            filter: drop-shadow(0 20px 25px rgba(0,0,0,0.3));
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
             transition: var(--transition);
         }
 
         .featured-achievement:hover .featured-image img {
-            transform: scale(1.05) rotate(2deg);
+            transform: scale(1.05);
         }
 
         .featured-content {
@@ -720,7 +715,7 @@
             }
             
             .featured-image {
-                min-height: 200px;
+                min-height: 250px;
             }
             
             .featured-achievement::before {
@@ -1579,7 +1574,7 @@
                     </div>
                     <!-- Hackronyx added to Experience -->
                     <div class="resume-item">
-                        <h3><i class="fas fa-video"></i> Media Team</h3>
+                        <h3><i class="fas fa-video"></i> Media Team Member</h3>
                         <h4>Hackronyx - National Level Hackathon</h4>
                         <span class="date"><i class="far fa-calendar-alt"></i> June 2025</span>
                         <p>🎓 Hosted and managed a National Level Hackathon<br>
@@ -1650,7 +1645,7 @@
             <!-- Featured Achievement - Department Sports Coordinator -->
             <div class="featured-achievement">
                 <div class="featured-media">
-                    <div class="featured-image trophy-image">
+                    <div class="featured-image">
                         <!-- Trophy image - replace with your actual trophy photo -->
                         <img src="insightt.png" alt="Department Championship Trophy" loading="lazy">
                     </div>
@@ -1746,18 +1741,18 @@
                     </div>
                 </div>
 
-                <!-- 3x3 Basketball Showdown - 3rd Place -->
+                <!-- 3x3 Basketball Showdown - 2nd Place -->
                 <div class="achievement-card">
                     <div class="achievement-image">
                         <!-- Basketball image - replace with your actual photo -->
                         <img src="3x3.jpeg" alt="3x3 Basketball Achievement" loading="lazy">
                     </div>
                     <div class="achievement-content">
-                        <span class="achievement-badge badge-bronze">🥈 2nd Place</span>
+                        <span class="achievement-badge badge-silver">🥈 2nd Place</span>
                         <h3>3x3 Basketball Showdown</h3>
                         <h4>Organized by Mechanical Department</h4>
                         <span class="date"><i class="far fa-calendar-alt"></i> 10 October 2025</span>
-                        <p>Won <strong>3rd Prize</strong> in the 3x3 Basketball Showdown organized by the Mechanical Department at St. Vincent Pallotti College of Engineering and Technology, competing against <strong>13 teams</strong>.</p>
+                        <p>Won <strong>2nd Place</strong> in the 3x3 Basketball Showdown organized by the Mechanical Department at St. Vincent Pallotti College of Engineering and Technology, competing against <strong>13 teams</strong>.</p>
                         
                         <div class="achievement-stats">
                             <div class="stat">
@@ -2419,7 +2414,7 @@
                         response = "🏐 Ritesh achieved **3rd Position** in the R.T.M.N.U. Intercollegiate Handball Tournament held at R.T.M. Nagpur University Ground.";
                     }
                     else if (lowerMessage.includes('3x3') || lowerMessage.includes('basketball showdown')) {
-                        response = "🏀 Ritesh won **3rd Prize** in the 3x3 Basketball Showdown organized by the Mechanical Department on October 10, 2025, competing against 13 teams at St. Vincent Pallotti College!";
+                        response = "🏀 Ritesh won **2nd Place** in the 3x3 Basketball Showdown organized by the Mechanical Department on October 10, 2025, competing against 13 teams at St. Vincent Pallotti College!";
                     }
                     else if (lowerMessage.includes('insight') || lowerMessage.includes('football')) {
                         response = "⚽ Ritesh won **1st Prize** in the Football competition at INSIGHT, the biggest college event at St. Vincent Pallotti College of Engineering and Technology!";
@@ -2428,7 +2423,7 @@
                         response = "🏀 Ritesh also won **3rd Prize** in the Basketball competition at the college sports event, demonstrating consistent performance across multiple tournaments.";
                     }
                     else if (lowerMessage.includes('achievement') || lowerMessage.includes('sports') || lowerMessage.includes('rtmnu')) {
-                        response = "Ritesh has multiple sports achievements:\n\n🏀 **Basketball**:\n- RTMNU: Runners-Up (2nd Place) after 7 years\n- 3x3 Showdown: 3rd Prize (13 teams)\n- College Event: 3rd Prize\n\n🏐 **Handball**: 3rd Position at RTMNU\n\n⚽ **Football**: 1st Prize at INSIGHT (College's Biggest Event)\n\n🏆 **Leadership**: As Sports Coordinator, led department to Rank #1 with maximum points!";
+                        response = "Ritesh has multiple sports achievements:\n\n🏀 **Basketball**:\n- RTMNU: Runners-Up (2nd Place) after 7 years\n- 3x3 Showdown: 2nd Place (13 teams)\n- College Event: 3rd Prize\n\n🏐 **Handball**: 3rd Position at RTMNU\n\n⚽ **Football**: 1st Prize at INSIGHT (College's Biggest Event)\n\n🏆 **Leadership**: As Sports Coordinator, led department to Rank #1 with maximum points!";
                     }
                     else if (lowerMessage.includes('skill') || lowerMessage.includes('technologies')) {
                         response = "Ritesh's technical skills include:\n- Languages: Dart, Python, C\n- Frontend: React.js, Flutter, HTML5, CSS3, Tailwind CSS\n- Backend: FastAPI, Node.js, REST APIs\n- Databases: MongoDB, SQL\n- Tools: Git, GitHub\n\nHe's also experienced in authentication systems, payment integrations, and responsive application design.";
@@ -2470,7 +2465,7 @@
                         response = "You're welcome! 😊 Let me know if there's anything else I can help with.";
                     }
                     else {
-                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Sports achievements: 🏀 Basketball (RTMNU 2nd, 3x3 3rd, College 3rd)\n- 🏐 Handball (RTMNU 3rd)\n- ⚽ Football (INSIGHT 1st)\n- 🏆 Leadership: Sports Coordinator (Department Rank #1)\n- Professional experience\n- Hackronyx hackathon experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
+                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Sports achievements: 🏀 Basketball (RTMNU 2nd, 3x3 2nd, College 3rd)\n- 🏐 Handball (RTMNU 3rd)\n- ⚽ Football (INSIGHT 1st)\n- 🏆 Leadership: Sports Coordinator (Department Rank #1)\n- Professional experience\n- Hackronyx hackathon experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
                     }
 
                     resolve(response);
