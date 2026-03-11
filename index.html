@@ -447,6 +447,86 @@
             margin-top: 3.125rem;
         }
 
+        /* Achievements Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            gap: 2rem;
+        }
+
+        .achievement-card {
+            background: var(--card-bg);
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            position: relative;
+            border: 1px solid #e2e8f0;
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-0.5rem);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .achievement-header {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
+            padding: 1.5rem;
+            text-align: center;
+            color: white;
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+        }
+
+        .achievement-subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+        }
+
+        .achievement-body {
+            padding: 1.5rem;
+        }
+
+        .achievement-body p {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .achievement-highlight {
+            background: #f1f5f9;
+            padding: 1rem;
+            border-radius: var(--border-radius);
+            margin-top: 1rem;
+            border-left: 4px solid var(--primary-color);
+        }
+
+        .achievement-highlight p {
+            margin: 0;
+            font-weight: 500;
+            color: var(--secondary-color);
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            background: var(--accent-color);
+            color: white;
+            padding: 0.35rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+
         /* Certificates Section */
         .certificate-grid {
             display: grid;
@@ -557,6 +637,12 @@
             margin-bottom: 1.25rem;
             color: var(--text-light);
             line-height: 1.6;
+        }
+
+        .project-features {
+            font-size: 0.875rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
         }
 
         .project-tags {
@@ -1024,7 +1110,7 @@
                 gap: 2.5rem;
             }
             
-            .project-grid, .certificate-grid, .cloud-badges {
+            .project-grid, .certificate-grid, .cloud-badges, .achievements-grid {
                 grid-template-columns: repeat(auto-fill, minmax(18.75rem, 1fr));
             }
             
@@ -1103,7 +1189,7 @@
                 padding: 0.625rem 1.25rem;
             }
             
-            .certificate-grid, .project-grid, .cloud-badges {
+            .certificate-grid, .project-grid, .cloud-badges, .achievements-grid {
                 grid-template-columns: 1fr;
             }
             
@@ -1171,6 +1257,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#resume">Resume</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
                     <li><a href="#certificates">Certificates</a></li>
                     <li><a href="#cloud-skills">Cloud Skills</a></li>
                     <li><a href="#projects">Projects</a></li>
@@ -1187,7 +1274,7 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1><span style="color: var(--primary-light);">Hi, I'm Ritesh Rathod</span> 👋</h1>
-            <p>🚀 FULL-STACK WEB & MOBILE ENGINEER | Flutter • React • FastAPI • Node.js</p>
+            <p>🚀 SOFTWARE DEVELOPER | 💻 FULL-STACK WEB | 🔥 MOBILE ENGINEER </p>
             <div class="hero-btns">
                 <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
                 <a href="#resume" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Resume</a>
@@ -1340,6 +1427,49 @@
             </div>
             <div class="download-resume">
                 <a href="Resume.pdf" class="btn" download><i class="fas fa-download"></i> Download Full Resume (PDF)</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Section - NEW -->
+    <section class="achievements" id="achievements">
+        <div class="container">
+            <h2 class="section-title">🏆 Achievements</h2>
+            <p class="section-subtitle">Milestones and accomplishments that define my journey</p>
+            <div class="achievements-grid">
+                <!-- Basketball Achievement -->
+                <div class="achievement-card">
+                    <div class="achievement-header">
+                        <div class="achievement-icon">🏀</div>
+                        <div class="achievement-title">R.T.M.N.U. Intercollegiate</div>
+                        <div class="achievement-subtitle">Basketball Tournament</div>
+                    </div>
+                    <div class="achievement-body">
+                        <p>After a gap of <strong>7 years</strong>, our college basketball team made a remarkable comeback, securing a spot in the University Finals with their hard work, determination, and teamwork.</p>
+                        <div class="achievement-highlight">
+                            <p><i class="fas fa-medal" style="color: var(--accent-color);"></i> <strong>Runners-Up Position</strong> 🥈</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">R.T.M. Nagpur University Ground, Nagpur</p>
+                        </div>
+                        <span class="achievement-badge">2nd Place / Runner-up</span>
+                    </div>
+                </div>
+
+                <!-- You can add more achievements here in the future -->
+                <div class="achievement-card">
+                    <div class="achievement-header" style="background: linear-gradient(135deg, #059669, #10b981);">
+                        <div class="achievement-icon">💻</div>
+                        <div class="achievement-title">Hackathon</div>
+                        <div class="achievement-subtitle">National Level</div>
+                    </div>
+                    <div class="achievement-body">
+                        <p>Successfully hosted and managed a National Level Hackathon as part of the Media Team, bringing together innovators from across the country.</p>
+                        <div class="achievement-highlight" style="border-left-color: #059669;">
+                            <p><i class="fas fa-calendar-check"></i> June 2025</p>
+                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Hackronyx - Media Team Member</p>
+                        </div>
+                        <span class="achievement-badge" style="background: #059669;">Event Management</span>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1557,12 +1687,12 @@
                 <!-- Nagpur Elite Events - New Project -->
                 <div class="project-card">
                     <div class="project-img">
-                        <img src="nee.png" alt="Nagpur Elite Events" loading="lazy">
+                        <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Nagpur Elite Events" loading="lazy">
                     </div>
                     <div class="project-content">
                         <h3>🎟️ Nagpur Elite Events</h3>
                         <p>Production-ready event marketplace with payments, booking, QR tickets, PDFs, background workers, analytics, and role-based dashboards — inspired by BookMyShow/TicketWings.</p>
-                        <p class="project-features" style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 1rem;">
+                        <p class="project-features">
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> Razorpay Integration • 
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> QR Ticketing • 
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> PDF Generation
@@ -1588,7 +1718,7 @@
                     <div class="project-content">
                         <h3>🤖 Human Resource Screening AI Agent</h3>
                         <p>AI-powered hiring assistant that automates resume screening, candidate evaluation, and initial interview processes using advanced NLP and machine learning algorithms.</p>
-                        <p class="project-features" style="font-size: 0.875rem; color: var(--text-light); margin-bottom: 1rem;">
+                        <p class="project-features">
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> Resume Parsing • 
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> Candidate Scoring • 
                             <i class="fas fa-check-circle" style="color: var(--success-color);"></i> Automated Screening
@@ -1790,7 +1920,7 @@
             </div>
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="message bot-message">
-                    👋 Hi there! I'm Ritesh's AI assistant. How can I help you today? You can ask me about his skills, projects, experience, or any of his work!
+                    👋 Hi there! I'm Ritesh's AI assistant. How can I help you today? You can ask me about his skills, projects, achievements, or any of his work!
                 </div>
             </div>
             <div class="chatbot-input">
@@ -1899,7 +2029,7 @@
             }
         }
 
-        // Local response generator
+        // Local response generator - Updated with basketball achievement
         function generateLocalResponse(userMessage) {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -1907,10 +2037,13 @@
                     let response = '';
 
                     if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
-                        response = "👋 Hello! I'm Ritesh's AI assistant. How can I help you today? You can ask about his skills, projects, or experience.";
+                        response = "👋 Hello! I'm Ritesh's AI assistant. How can I help you today? You can ask about his skills, projects, achievements, or experience.";
                     } 
                     else if (lowerMessage.includes('about') || lowerMessage.includes('who is')) {
                         response = "Ritesh is a passionate Full-Stack Developer experienced in building scalable web and mobile applications using Flutter, React, FastAPI, and Node.js. He's currently pursuing B.Tech in Computer Science & Business Systems at St. Vincent Pallotti College of Engineering and Technology.";
+                    }
+                    else if (lowerMessage.includes('achievement') || lowerMessage.includes('basketball') || lowerMessage.includes('sports')) {
+                        response = "🏀 Ritesh is part of his college basketball team that achieved an incredible milestone! After a gap of 7 years, his college emerged as the Runners-Up in the R.T.M.N.U. Intercollegiate Basketball Tournament held at R.T.M. Nagpur University Ground. It was a remarkable comeback showcasing their hard work, determination, and teamwork!";
                     }
                     else if (lowerMessage.includes('skill') || lowerMessage.includes('technologies')) {
                         response = "Ritesh's technical skills include:\n- Languages: Dart, Python, C\n- Frontend: React.js, Flutter, HTML5, CSS3, Tailwind CSS\n- Backend: FastAPI, Node.js, REST APIs\n- Databases: MongoDB, SQL\n- Tools: Git, GitHub\n\nHe's also experienced in authentication systems, payment integrations, and responsive application design.";
@@ -1949,7 +2082,7 @@
                         response = "You're welcome! 😊 Let me know if there's anything else I can help with.";
                     }
                     else {
-                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Professional experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
+                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Basketball achievement (Runners-up after 7 years!)\n- Professional experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
                     }
 
                     resolve(response);
