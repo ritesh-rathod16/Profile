@@ -35,6 +35,7 @@
             --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.1);
             --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
             --border-radius: 8px;
             --max-width: 1200px;
         }
@@ -447,59 +448,100 @@
             margin-top: 3.125rem;
         }
 
-        /* Achievements Section */
+        /* Achievements Section - Grid Layout for Multiple Achievements */
         .achievements-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 2rem;
+            margin-top: 2rem;
         }
 
         .achievement-card {
             background: var(--card-bg);
             border-radius: var(--border-radius);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
             transition: var(--transition);
             position: relative;
             border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
         }
 
         .achievement-card:hover {
             transform: translateY(-0.5rem);
-            box-shadow: var(--shadow-lg);
+            box-shadow: var(--shadow-xl);
         }
 
-        .achievement-header {
+        .achievement-image {
+            height: 200px;
+            overflow: hidden;
             background: linear-gradient(135deg, var(--primary-color), var(--primary-light));
-            padding: 1.5rem;
-            text-align: center;
-            color: white;
-        }
-
-        .achievement-icon {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .achievement-title {
-            font-size: 1.5rem;
-            font-weight: 700;
-            margin-bottom: 0.25rem;
-        }
-
-        .achievement-subtitle {
-            font-size: 1rem;
-            opacity: 0.9;
-        }
-
-        .achievement-body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 1.5rem;
         }
 
-        .achievement-body p {
-            color: var(--text-light);
+        .achievement-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            max-height: 160px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.2));
+            transition: var(--transition);
+        }
+
+        .achievement-card:hover .achievement-image img {
+            transform: scale(1.05);
+        }
+
+        .achievement-content {
+            padding: 1.5rem;
+            flex: 1;
+        }
+
+        .achievement-badge {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
             margin-bottom: 1rem;
-            line-height: 1.7;
+        }
+
+        .badge-gold {
+            background: #fbbf24;
+            color: #92400e;
+        }
+
+        .badge-silver {
+            background: #e5e7eb;
+            color: #4b5563;
+        }
+
+        .badge-bronze {
+            background: #d97706;
+            color: #fff;
+        }
+
+        .achievement-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .achievement-content h4 {
+            font-size: 1rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .achievement-content p {
+            color: var(--text-light);
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
         }
 
         .achievement-highlight {
@@ -510,21 +552,30 @@
             border-left: 4px solid var(--primary-color);
         }
 
-        .achievement-highlight p {
-            margin: 0;
-            font-weight: 500;
+        .achievement-stats {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .stat {
+            text-align: center;
+            flex: 1;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
             color: var(--secondary-color);
         }
 
-        .achievement-badge {
-            display: inline-block;
-            background: var(--accent-color);
-            color: white;
-            padding: 0.35rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            margin-top: 1rem;
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
 
         /* Certificates Section */
@@ -1274,7 +1325,7 @@
     <section class="hero" id="home">
         <div class="container hero-content">
             <h1><span style="color: var(--primary-light);">Hi, I'm Ritesh Rathod</span> 👋</h1>
-            <p>🚀 SOFTWARE DEVELOPER | 💻 FULL-STACK WEB | 🔥 MOBILE ENGINEER </p>
+            <p>🚀 SOFTWARE DEVELOPER | 💻 FULL-STACK WEB | 🔥 MOBILE ENGINEER</p>
             <div class="hero-btns">
                 <a href="#contact" class="btn"><i class="fas fa-paper-plane"></i> Contact Me</a>
                 <a href="#resume" class="btn btn-outline"><i class="fas fa-file-alt"></i> View Resume</a>
@@ -1373,14 +1424,6 @@
                         🤝 Team Coordination<br>
                         🚀 Startup Event Support</p>
                     </div>
-
-                    <div class="resume-item">
-                        <h3><i class="fas fa-trophy"></i> Hackronyx</h3>
-                        <h4>Media Team Member</h4>
-                        <span class="date"><i class="far fa-calendar-alt"></i> June 2025</span>
-                        <p>🎓 Hosted a National Level Hackathon<br>
-                        📊 Worked as Media Team Member managing coverage and promotions</p>
-                    </div>
                 </div>
                 
                 <div class="resume-column">
@@ -1423,6 +1466,19 @@
                         🤝 Recruitment Management<br>
                         👥 Building high-performing teams</p>
                     </div>
+
+                    <!-- Hackronyx added to Experience -->
+                    <div class="resume-item">
+                        <h3><i class="fas fa-video"></i> Media Team Member</h3>
+                        <h4>Hackronyx - National Level Hackathon</h4>
+                        <span class="date"><i class="far fa-calendar-alt"></i> June 2025</span>
+                        <p>🎓 Hosted and managed a National Level Hackathon<br>
+                        📸 Worked as Media Team Member handling:<br>
+                        - Event coverage and photography<br>
+                        - Social media promotions<br>
+                        - Content creation and management<br>
+                        - Live updates and participant engagement</p>
+                    </div>
                 </div>
             </div>
             <div class="download-resume">
@@ -1431,43 +1487,76 @@
         </div>
     </section>
 
-    <!-- Achievements Section - NEW -->
+    <!-- Achievements Section - Both Basketball and Handball -->
     <section class="achievements" id="achievements">
         <div class="container">
-            <h2 class="section-title">🏆 Achievements</h2>
-            <p class="section-subtitle">Milestones and accomplishments that define my journey</p>
+            <h2 class="section-title">🏆 Sports Achievements</h2>
+            <p class="section-subtitle">Milestones and accomplishments on the field at RTMNU University</p>
+            
             <div class="achievements-grid">
-                <!-- Basketball Achievement -->
+                <!-- Basketball Achievement - 2nd Place -->
                 <div class="achievement-card">
-                    <div class="achievement-header">
-                        <div class="achievement-icon">🏀</div>
-                        <div class="achievement-title">R.T.M.N.U. Intercollegiate</div>
-                        <div class="achievement-subtitle">Basketball Tournament</div>
+                    <div class="achievement-image">
+                        <!-- Basketball image - replace with your actual photo -->
+                        <img src="bb.jpeg" alt="Basketball Achievement" loading="lazy">
                     </div>
-                    <div class="achievement-body">
+                    <div class="achievement-content">
+                        <span class="achievement-badge badge-silver">🥈 Runners-Up</span>
+                        <h3>R.T.M.N.U. Intercollegiate Basketball Tournament</h3>
+                        <h4>R.T.M. Nagpur University Ground, Nagpur</h4>
                         <p>After a gap of <strong>7 years</strong>, our college basketball team made a remarkable comeback, securing a spot in the University Finals with their hard work, determination, and teamwork.</p>
+                        
                         <div class="achievement-highlight">
-                            <p><i class="fas fa-medal" style="color: var(--accent-color);"></i> <strong>Runners-Up Position</strong> 🥈</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">R.T.M. Nagpur University Ground, Nagpur</p>
+                            <p><i class="fas fa-medal" style="color: #94a3b8;"></i> <strong>Runners-Up Position - 2nd Place</strong> 🥈</p>
                         </div>
-                        <span class="achievement-badge">2nd Place / Runner-up</span>
+                        
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <div class="stat-value">2nd</div>
+                                <div class="stat-label">Position</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">🏀</div>
+                                <div class="stat-label">Basketball</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">7 Years</div>
+                                <div class="stat-label">Comeback</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <!-- You can add more achievements here in the future -->
+                <!-- Handball Achievement - 3rd Place -->
                 <div class="achievement-card">
-                    <div class="achievement-header" style="background: linear-gradient(135deg, #059669, #10b981);">
-                        <div class="achievement-icon">💻</div>
-                        <div class="achievement-title">Hackathon</div>
-                        <div class="achievement-subtitle">National Level</div>
+                    <div class="achievement-image">
+                        <!-- Handball image - replace with your actual photo -->
+                        <img src="https://images.unsplash.com/photo-1599058917765-a780eda07a3e?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Handball Achievement" loading="lazy">
                     </div>
-                    <div class="achievement-body">
-                        <p>Successfully hosted and managed a National Level Hackathon as part of the Media Team, bringing together innovators from across the country.</p>
-                        <div class="achievement-highlight" style="border-left-color: #059669;">
-                            <p><i class="fas fa-calendar-check"></i> June 2025</p>
-                            <p style="margin-top: 0.5rem; font-size: 0.9rem;">Hackronyx - Media Team Member</p>
+                    <div class="achievement-content">
+                        <span class="achievement-badge badge-bronze">🥉 3rd Position</span>
+                        <h3>R.T.M.N.U. Intercollegiate Handball Tournament</h3>
+                        <h4>R.T.M. Nagpur University Ground, Nagpur</h4>
+                        <p>Secured <strong>3rd Position</strong> in the university-level handball tournament, showcasing exceptional teamwork, dedication, and sportsmanship.</p>
+                        
+                        <div class="achievement-highlight">
+                            <p><i class="fas fa-trophy" style="color: #cd7f32;"></i> <strong>Bronze Medalists - 3rd Place</strong> 🥉</p>
                         </div>
-                        <span class="achievement-badge" style="background: #059669;">Event Management</span>
+                        
+                        <div class="achievement-stats">
+                            <div class="stat">
+                                <div class="stat-value">3rd</div>
+                                <div class="stat-label">Position</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">🏐</div>
+                                <div class="stat-label">Handball</div>
+                            </div>
+                            <div class="stat">
+                                <div class="stat-value">RTMNU</div>
+                                <div class="stat-label">University</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1678,13 +1767,13 @@
         </div>
     </section>
 
-    <!-- Projects Section - Updated with New Projects -->
+    <!-- Projects Section -->
     <section class="projects" id="projects">
         <div class="container">
             <h2 class="section-title">My Projects</h2>
             <p class="section-subtitle">Scalable full-stack applications with clean architecture and modern UI/UX</p>
             <div class="project-grid">
-                <!-- Nagpur Elite Events - New Project -->
+                <!-- Nagpur Elite Events -->
                 <div class="project-card">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Nagpur Elite Events" loading="lazy">
@@ -1710,7 +1799,7 @@
                     </div>
                 </div>
 
-                <!-- Human Resource Screening AI Agent - New Project -->
+                <!-- Human Resource Screening AI Agent -->
                 <div class="project-card">
                     <div class="project-img">
                         <img src="https://images.unsplash.com/photo-1586281380117-5a60ae2050cc?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="HR AI Agent" loading="lazy">
@@ -1920,7 +2009,7 @@
             </div>
             <div class="chatbot-messages" id="chatbot-messages">
                 <div class="message bot-message">
-                    👋 Hi there! I'm Ritesh's AI assistant. How can I help you today? You can ask me about his skills, projects, achievements, or any of his work!
+                    👋 Hi there! I'm Ritesh's AI assistant. How can I help you today? You can ask me about his skills, projects, sports achievements (Basketball & Handball), or any of his work!
                 </div>
             </div>
             <div class="chatbot-input">
@@ -2029,7 +2118,7 @@
             }
         }
 
-        // Local response generator - Updated with basketball achievement
+        // Local response generator - Updated with both basketball and handball achievements
         function generateLocalResponse(userMessage) {
             return new Promise((resolve) => {
                 setTimeout(() => {
@@ -2037,13 +2126,19 @@
                     let response = '';
 
                     if (lowerMessage.includes('hi') || lowerMessage.includes('hello') || lowerMessage.includes('hey')) {
-                        response = "👋 Hello! I'm Ritesh's AI assistant. How can I help you today? You can ask about his skills, projects, achievements, or experience.";
+                        response = "👋 Hello! I'm Ritesh's AI assistant. How can I help you today? You can ask about his skills, projects, sports achievements (Basketball & Handball), or experience.";
                     } 
                     else if (lowerMessage.includes('about') || lowerMessage.includes('who is')) {
                         response = "Ritesh is a passionate Full-Stack Developer experienced in building scalable web and mobile applications using Flutter, React, FastAPI, and Node.js. He's currently pursuing B.Tech in Computer Science & Business Systems at St. Vincent Pallotti College of Engineering and Technology.";
                     }
-                    else if (lowerMessage.includes('achievement') || lowerMessage.includes('basketball') || lowerMessage.includes('sports')) {
-                        response = "🏀 Ritesh is part of his college basketball team that achieved an incredible milestone! After a gap of 7 years, his college emerged as the Runners-Up in the R.T.M.N.U. Intercollegiate Basketball Tournament held at R.T.M. Nagpur University Ground. It was a remarkable comeback showcasing their hard work, determination, and teamwork!";
+                    else if (lowerMessage.includes('basketball') || (lowerMessage.includes('sports') && lowerMessage.includes('2nd'))) {
+                        response = "🏀 Ritesh's basketball team achieved an incredible milestone! After a gap of 7 years, his college emerged as the **Runners-Up (2nd Place)** in the R.T.M.N.U. Intercollegiate Basketball Tournament held at R.T.M. Nagpur University Ground. It was a remarkable comeback showcasing their hard work, determination, and teamwork!";
+                    }
+                    else if (lowerMessage.includes('handball') || (lowerMessage.includes('sports') && lowerMessage.includes('3rd'))) {
+                        response = "🏐 Ritesh achieved **3rd Position** in the R.T.M.N.U. Intercollegiate Handball Tournament held at R.T.M. Nagpur University Ground. This accomplishment showcases his dedication to sports and teamwork alongside his technical pursuits!";
+                    }
+                    else if (lowerMessage.includes('achievement') || lowerMessage.includes('sports') || lowerMessage.includes('rtmnu')) {
+                        response = "Ritesh has two major sports achievements at RTMNU University:\n🏀 **Basketball**: Runners-Up (2nd Place) after a 7-year gap\n🏐 **Handball**: 3rd Position (Bronze Medal)\nBoth tournaments were held at R.T.M. Nagpur University Ground.";
                     }
                     else if (lowerMessage.includes('skill') || lowerMessage.includes('technologies')) {
                         response = "Ritesh's technical skills include:\n- Languages: Dart, Python, C\n- Frontend: React.js, Flutter, HTML5, CSS3, Tailwind CSS\n- Backend: FastAPI, Node.js, REST APIs\n- Databases: MongoDB, SQL\n- Tools: Git, GitHub\n\nHe's also experienced in authentication systems, payment integrations, and responsive application design.";
@@ -2058,7 +2153,10 @@
                         response = "🤖 Human Resource Screening AI Agent automates recruitment with:\n- AI-powered resume parsing\n- Candidate scoring and ranking\n- Automated initial screening\n- NLP and machine learning algorithms\nLive demo: https://ritesh-rathod16.github.io/Human-resource-Screening-AI-Agent/";
                     }
                     else if (lowerMessage.includes('experience') || lowerMessage.includes('job')) {
-                        response = "Ritesh's professional experience includes:\n- Founder & CEO at RR Industryy (Web Development Agency)\n- CTO at PhoenixAlgo (EdTech)\n- Vice President & Hiring Manager at MW Infotech\n- Operations Management at E-Cell Club\n\nHe's skilled in team leadership, strategic planning, and talent acquisition.";
+                        response = "Ritesh's professional experience includes:\n- Founder & CEO at RR Industryy (Web Development Agency)\n- CTO at PhoenixAlgo (EdTech)\n- Vice President & Hiring Manager at MW Infotech\n- Media Team Member at Hackronyx (National Hackathon)\n- Operations Management at E-Cell Club\n\nHe's skilled in team leadership, strategic planning, and talent acquisition.";
+                    }
+                    else if (lowerMessage.includes('hackronyx') || lowerMessage.includes('hackathon')) {
+                        response = "🎓 Ritesh was part of the Media Team at Hackronyx, a National Level Hackathon. He handled event coverage, photography, social media promotions, content creation, and participant engagement!";
                     }
                     else if (lowerMessage.includes('contact') || lowerMessage.includes('email')) {
                         response = "You can contact Ritesh through:\n📧 Email: riteshrathod016@gmail.com\n📞 Phone: +91 7721874530\n📍 Location: Nagpur, Maharashtra\n🌐 Portfolio: ritesh-rathod.vercel.app\n\nOr use the contact form on this page!";
@@ -2082,7 +2180,7 @@
                         response = "You're welcome! 😊 Let me know if there's anything else I can help with.";
                     }
                     else {
-                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Basketball achievement (Runners-up after 7 years!)\n- Professional experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
+                        response = "I'm not sure I understand. You can ask me about:\n- Ritesh's skills and technologies\n- His projects (Nagpur Elite Events, HR AI Agent, etc.)\n- Sports achievements: 🏀 Basketball (2nd Place after 7 years!) & 🏐 Handball (3rd Place at RTMNU)\n- Professional experience\n- Hackronyx hackathon experience\n- Education\n- Certificates\n- Contact information\n\nWhat would you like to know?";
                     }
 
                     resolve(response);
